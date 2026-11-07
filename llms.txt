@@ -1,6 +1,6 @@
 # Eagle Web Creation
 
-> Eagle Web Creation is a web design business in Wyoming's Big Horn Basin, run by Talon Grant. It builds and manages clean, fast, hand-coded websites for businesses in Lovell, Cody, Powell, Greybull, Basin, Worland, Thermopolis and the surrounding area, and larger sites for statewide and multistate businesses.
+> Eagle Web Creation is a web design business in Wyoming's Big Horn Basin, run by Talon Grant. It builds and manages clean, fast, custom-built websites for businesses in Lovell, Cody, Powell, Greybull, Basin, Worland, Thermopolis and the surrounding area, and larger sites for statewide and multistate businesses.
 
 - Services: website creation, website management, website consultation
 - Service area: Big Horn Basin, Wyoming (Big Horn, Park, Washakie and Hot Springs counties), plus statewide and multistate clients
@@ -18,7 +18,7 @@
 
 ## How sites are built
 
-- Hand-coded HTML and CSS, no page builders or frameworks
+- Custom-built, with no drag-and-drop page builders
 - Mobile-first and fast loading
 - SEO written around each business's services and the towns it serves
 - Business details marked up with structured data for search engines and AI assistants

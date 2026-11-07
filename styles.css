@@ -260,6 +260,8 @@ p { margin: 0; }
 .site-footer a:hover { color: #9fbcf3; text-decoration: underline; }
 .contact-line { font-size: var(--step-0); font-weight: 500; }
 .contact-line a { overflow-wrap: normal; white-space: nowrap; }
+.social-link { display: inline-flex; align-items: center; gap: 8px; }
+.social-icon { flex: none; }
 .site-footer .tagline { color: var(--muted-on-dark); margin-top: 14px; max-width: 22rem; }
 .legal { border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 20px; color: var(--muted-on-dark); font-size: var(--step--1); }
 

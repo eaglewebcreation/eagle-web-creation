@@ -5,4 +5,17 @@ RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
+
+# Clean page addresses: /index.html goes to /, and /about.html goes to /about
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://eaglewebcreation.com/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^ https://eaglewebcreation.com/%1 [R=301,L]
+
+# Serve /about from about.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)$ $1.html [L]
+
 DirectoryIndex index.html

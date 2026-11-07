@@ -27,6 +27,6 @@
 ## Pages
 
 - [Home](https://eaglewebcreation.com/): services and how a site gets built
-- [Pricing](https://eaglewebcreation.com/pricing.html): website creation, management and consultation pricing
-- [FAQ](https://eaglewebcreation.com/faq.html): service areas in the Big Horn Basin, pricing questions, search and AI visibility
-- [About](https://eaglewebcreation.com/about.html): about Talon Grant and how he builds websites
+- [Pricing](https://eaglewebcreation.com/pricing): website creation, management and consultation pricing
+- [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing questions, search and AI visibility
+- [About](https://eaglewebcreation.com/about): about Talon Grant and how he builds websites

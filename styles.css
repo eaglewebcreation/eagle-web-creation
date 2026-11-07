@@ -219,6 +219,7 @@ p { margin: 0; }
 .tier .fit { color: var(--ink); }
 .tier .fit strong { display: block; font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); margin-bottom: 2px; }
 .tier .btn { margin-top: auto; }
+.tier-list { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
 
 .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
 .plan-table { width: 100%; border-collapse: collapse; min-width: 420px; font-variant-numeric: tabular-nums; }

@@ -13,7 +13,11 @@
 - Website creation, 1-5 pages: $800. For local small businesses that work within about a 60-mile radius.
 - Website creation, 6-10 pages: $1,500. For larger businesses that advertise statewide.
 - Website creation, 10+ pages: priced after a consultation. For multistate businesses and online stores.
-- Website management: $75/month for 30 minutes of website work, $100/month for 1 hour, $225/month for 2 hours. Extra work is $100 per hour, billed in full hours.
+- Website management (a monthly plan comes with every site):
+  - Starter, $75/month: hosting, SSL, backups, security updates, uptime checks and 30 minutes of edits. Required with every website build.
+  - Growth, $150/month: everything in Starter, plus Google Business Profile upkeep and review requests.
+  - Local SEO, $275/month: everything in Growth, plus monthly SEO work and a monthly report.
+  - Extra work is $100 per hour, billed in full hours.
 - Website consultation: required for 10+ page sites and available to any business.
 
 ## How sites are built

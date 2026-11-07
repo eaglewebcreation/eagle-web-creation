@@ -1,0 +1,8 @@
+# Eagle Web Creation: one canonical address, https://eaglewebcreation.com
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.eaglewebcreation\.com$ [NC]
+RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
+DirectoryIndex index.html

@@ -1,0 +1,32 @@
+# Eagle Web Creation
+
+> Eagle Web Creation is a web design business in Wyoming's Big Horn Basin, run by Talon Grant. It builds and manages clean, fast, hand-coded websites for businesses in Lovell, Cody, Powell, Greybull, Basin, Worland, Thermopolis and the surrounding area, and larger sites for statewide and multistate businesses.
+
+- Services: website creation, website management, website consultation
+- Service area: Big Horn Basin, Wyoming (Big Horn, Park, Washakie and Hot Springs counties), plus statewide and multistate clients
+- Email: eaglewebcreation@gmail.com
+- Phone: 307-254-8972
+- Schedule a call: https://calendly.com/eaglewebcreation/30min
+
+## Pricing
+
+- Website creation, 1-5 pages: $800. For local small businesses that work within about a 60-mile radius.
+- Website creation, 6-10 pages: $1,500. For larger businesses that advertise statewide.
+- Website creation, 10+ pages: priced after a consultation. For multistate businesses and online stores.
+- Website management: $75/month for 30 minutes of website work, $100/month for 1 hour, $225/month for 2 hours. Extra work is $100 per hour, billed in full hours.
+- Website consultation: required for 10+ page sites and available to any business.
+
+## How sites are built
+
+- Hand-coded HTML and CSS, no page builders or frameworks
+- Mobile-first and fast loading
+- SEO written around each business's services and the towns it serves
+- Business details marked up with structured data for search engines and AI assistants
+- Domain and DNS set up properly at launch
+
+## Pages
+
+- [Home](https://eaglewebcreation.com/): services and how a site gets built
+- [Pricing](https://eaglewebcreation.com/pricing.html): website creation, management and consultation pricing
+- [FAQ](https://eaglewebcreation.com/faq.html): service areas in the Big Horn Basin, pricing questions, search and AI visibility
+- [About](https://eaglewebcreation.com/about.html): about Talon Grant and how he builds websites

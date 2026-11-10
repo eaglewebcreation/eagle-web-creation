@@ -12,7 +12,7 @@
 (function () {
   var ENDPOINT = "https://formsubmit.co/ajax/eaglewebcreation@gmail.com";
   var WAIT_MS = 12000;
-  var BACKUP = "<a href=\"mailto:eaglewebcreation@gmail.com\">eaglewebcreation@gmail.com</a> or call <a href=\"tel:+13072548972\">307-254-8972</a>";
+  var BACKUP = "<a href=\"mailto:talon@eaglewebcreation.com\">talon@eaglewebcreation.com</a> or call <a href=\"tel:+13072548972\">307-254-8972</a>";
   var form = document.getElementById("contact-form");
   if (!form) return;
   var note = document.getElementById("contact-note");

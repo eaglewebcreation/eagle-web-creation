@@ -289,3 +289,37 @@ p { margin: 0; }
 .qa { display: grid; gap: 8px; padding-block: 22px; border-bottom: 1px solid var(--line); }
 .qa h3 { font-size: var(--step-1); }
 .qa p { color: var(--muted); max-width: 44rem; }
+
+/* Home: "Sound familiar?" cards */
+.cards--four { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card--pain h3 { font-size: var(--step-1); line-height: 1.2; }
+
+/* Home: "What your site can do" (white section right after another white one) */
+.section--rule .wrap { border-top: 1px solid var(--line); }
+.list-foot { color: var(--muted); font-size: var(--step-1); }
+
+/* Home: free website check in the CTA band */
+.cta-check { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.25); }
+.cta-check p { margin: 0; color: var(--paper); max-width: 40rem; }
+
+/* Home: contact form */
+.form { display: grid; gap: 16px; background: var(--mist); border-radius: var(--radius); padding: 24px; }
+.form label { display: grid; gap: 6px; font-weight: 600; }
+.form .req, .form .opt { font-weight: 400; color: var(--muted); font-size: var(--step--1); }
+.form input, .form textarea {
+  font: inherit; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; width: 100%;
+}
+.form textarea { resize: vertical; min-height: 130px; }
+.form input:focus, .form textarea:focus { outline: 3px solid var(--blue-hover); outline-offset: 1px; border-color: var(--blue); }
+.form .btn { justify-self: start; cursor: pointer; }
+.form .btn:disabled { opacity: 0.6; cursor: wait; }
+.form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-note { background: var(--blue-soft); border-left: 4px solid var(--blue); padding: 12px 16px; font-weight: 600; }
+.contact-side { display: grid; gap: 14px; align-content: start; }
+.contact-side p { color: var(--muted); }
+.contact-side .btn { justify-self: start; }
+@media (max-width: 520px) {
+  .form { padding: 18px; }
+  .form .btn, .contact-side .btn { justify-self: stretch; }
+}

@@ -279,6 +279,32 @@
       </div>
     </section>
 
+    <section class="section section--mist" aria-labelledby="familiar-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="familiar-title">Sound familiar?</h2>
+        </div>
+        <div class="cards cards--four">
+          <article class="card card--pain">
+            <h3>Customers keep calling to ask your hours or prices.</h3>
+            <p>Your site should answer that before they pick up the phone.</p>
+          </article>
+          <article class="card card--pain">
+            <h3>Your website looks fine on a computer but falls apart on a phone.</h3>
+            <p>Most of your customers are looking at it on their phone. I build for that first.</p>
+          </article>
+          <article class="card card--pain">
+            <h3>You're still running on a Facebook page or the site someone set up years ago.</h3>
+            <p>A clean, current site makes people trust you before they ever call.</p>
+          </article>
+          <article class="card card--pain">
+            <h3>People can't find you when they search.</h3>
+            <p>I set your site up so Google and AI tools like ChatGPT know what you do and where you work.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head">
@@ -305,6 +331,23 @@
             <a class="card-link" href="/pricing#consultation">About consultations</a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--rule" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="features-title">What your site can do</h2>
+        </div>
+        <ul class="checks">
+          <li><strong>Online booking</strong><span>Customers pick a time without calling.</span></li>
+          <li><strong>Online ordering</strong><span>Take orders straight from your site.</span></li>
+          <li><strong>Quote and estimate requests</strong><span>Get the job details up front.</span></li>
+          <li><strong>Photo galleries</strong><span>Show off your work.</span></li>
+          <li><strong>Contact forms</strong><span>Messages go straight to your inbox.</span></li>
+          <li><strong>Click-to-call and directions</strong><span>One tap from a phone.</span></li>
+        </ul>
+        <p class="list-foot">Ask me about any of these when we talk.</p>
       </div>
     </section>
 
@@ -372,11 +415,42 @@
           <p>Tell me about your business and I'll tell you which option fits.</p>
         </div>
         <a class="btn btn--dark" href="https://calendly.com/eaglewebcreation/30min" target="_blank" rel="noopener">Schedule a call</a>
+        <div class="cta-check">
+          <p>Not ready to talk yet? Send me your current website and I'll tell you the 3 biggest things holding it back. Free, no pressure.</p>
+          <a class="btn btn--ghost" href="#contact-form">Get a free website check</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="contact-title">Contact</h2>
+          <p>Tell me a little about your business and I'll get back to you within one business day.</p>
+        </div>
+        <div class="split contact-split">
+          <form class="form" id="contact-form" novalidate>
+            <input type="hidden" name="_subject" value="New message from eaglewebcreation.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label>Name <span class="req">(required)</span><input name="name" autocomplete="name" required></label>
+            <label>Business name <span class="req">(required)</span><input name="business" autocomplete="organization" required></label>
+            <label>Current website <span class="opt">(optional)</span><input name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></label>
+            <label>What do you need? <span class="req">(required)</span><textarea name="message" rows="5" required></textarea></label>
+            <button class="btn btn--blue" type="submit">Send message</button>
+            <p class="form-note" id="contact-note" role="status" hidden></p>
+          </form>
+          <div class="contact-side">
+            <h3>Rather talk it through?</h3>
+            <p>Pick a time that works for you and we'll talk about your website.</p>
+            <a class="btn btn--dark" href="https://calendly.com/eaglewebcreation/30min" target="_blank" rel="noopener">Schedule a call</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" id="contact">
+  <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
         <div>
@@ -409,5 +483,6 @@
       <p class="legal">&copy; 2026 Eagle Web Creation. All rights reserved.</p>
     </div>
   </footer>
+  <script src="/contact.js" defer></script>
 </body>
 </html>

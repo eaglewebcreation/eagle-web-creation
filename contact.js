@@ -1,6 +1,6 @@
 /* Eagle Web Creation: home page contact form.
    Messages are emailed through FormSubmit (no account needed). The first message ever
-   sent triggers a one-time "activate this form" email to eaglewebcreation@gmail.com;
+   sent triggers a one-time "activate this form" email to the inbox below;
    nothing is delivered until that link is clicked.
    FormSubmit sometimes delivers the email but answers the page very slowly, so after
    WAIT_MS the visitor gets a thank-you (with a backup way to reach me) instead of a

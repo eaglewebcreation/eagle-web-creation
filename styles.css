@@ -353,7 +353,7 @@ p { margin: 0; }
 .home .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22); }
 .home .btn:active { transform: translateY(0); box-shadow: none; }
 /* Hover lift uses `translate`, so it never fights the scroll-in `transform` */
-.js .card--lift[data-reveal], .js .pains-open .pain[data-reveal] {
+.js .card--lift[data-reveal], .js.pains-open .pain[data-reveal] {
   transition: opacity 0.6s ease calc(var(--i, 0) * 90ms), transform 0.6s ease calc(var(--i, 0) * 90ms),
     translate 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }

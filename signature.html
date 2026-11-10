@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email Signature | Eagle Web Creation</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <style>
+    body { margin: 0; background: #f2f5fa; color: #0b0d12; font-family: "Helvetica Neue", Arial, sans-serif; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; }
+    h1 { font-size: 26px; margin: 0 0 6px; }
+    .lead { color: #4a5468; margin: 0 0 24px; line-height: 1.5; }
+    .card { background: #fff; border: 1px solid #dce2ec; border-radius: 6px; padding: 24px 20px; overflow-x: auto; }
+    .btn { display: inline-block; margin-top: 16px; background: #0046ba; color: #fff; border: 0; border-radius: 6px; padding: 12px 20px; font-size: 16px; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #0a56d8; }
+    .msg { margin: 10px 0 0; color: #0046ba; font-weight: 600; min-height: 1.4em; }
+    h2 { font-size: 18px; margin: 32px 0 10px; }
+    ol { padding-left: 22px; line-height: 1.6; margin: 0; }
+    li { margin-bottom: 8px; }
+    .note { color: #4a5468; font-size: 14px; line-height: 1.5; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Email signature</h1>
+    <p class="lead">For mail sent from talon@eaglewebcreation.com. Set it up on a computer, since the Gmail phone app can't add a signature like this.</p>
+    <div class="card">
+      <div id="signature">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#0b0d12;width:450px;max-width:100%;">
+<tr>
+<td style="padding:0 16px 12px 0;vertical-align:middle;width:140px;"><a href="https://eaglewebcreation.com" style="text-decoration:none;"><img src="https://eaglewebcreation.com/email/signature-logo.png" width="140" height="45" alt="Eagle Web Creation" style="display:block;border:0;width:140px;height:45px;"></a></td>
+<td style="padding:0 0 12px 14px;border-left:3px solid #0046ba;vertical-align:middle;font-size:13px;line-height:19px;">
+<div style="font-size:17px;line-height:22px;font-weight:bold;color:#0b0d12;">Talon Grant</div>
+<div style="color:#4a5468;padding-bottom:4px;">Founder, Eagle Web Creation</div>
+<div><a href="tel:+13072548972" style="color:#0b0d12;text-decoration:none;">307-254-8972</a></div>
+<div><a href="mailto:talon@eaglewebcreation.com" style="color:#0046ba;text-decoration:none;">talon@eaglewebcreation.com</a></div>
+<div><a href="https://eaglewebcreation.com" style="color:#0046ba;text-decoration:none;">eaglewebcreation.com</a></div>
+</td>
+</tr>
+<tr>
+<td colspan="2" bgcolor="#0046ba" style="background-color:#0046ba;padding:8px 12px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;">
+<tr>
+<td style="color:#ffffff;">Websites for local businesses</td>
+<td align="right" style="text-align:right;white-space:nowrap;"><a href="https://calendly.com/eaglewebcreation/30min" style="color:#ffffff;font-weight:bold;text-decoration:underline;">Book a call</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+      </div>
+    </div>
+    <button class="btn" id="copy" type="button">Copy signature</button>
+    <p class="msg" id="copy-msg" role="status"></p>
+
+    <h2>Add it to Gmail</h2>
+    <ol>
+      <li>Press <strong>Copy signature</strong> above.</li>
+      <li>In Gmail, click the gear, then <strong>See all settings</strong>. On the <strong>General</strong> tab, scroll to <strong>Signature</strong>, click <strong>Create new</strong>, name it Eagle Web, and paste.</li>
+      <li>Under <strong>Signature defaults</strong>, pick talon@eaglewebcreation.com, choose Eagle Web for new emails and for replies and forwards, then click <strong>Save Changes</strong> at the bottom.</li>
+    </ol>
+    <p class="note">If the copy button doesn't work in your browser, drag to select the whole signature above, copy it, and paste it into Gmail the same way.</p>
+  </main>
+  <script>
+    (function () {
+      var btn = document.getElementById("copy");
+      var msg = document.getElementById("copy-msg");
+      var box = document.getElementById("signature");
+      var LIVE_LOGO = "https://eaglewebcreation.com/email/signature-logo.png";
+      // On the test site the logo isn't on the live address yet, so preview it from here.
+      if (location.hostname !== "eaglewebcreation.com") {
+        box.querySelectorAll("img").forEach(function (i) { i.src = "/email/signature-logo.png"; });
+      }
+      function selectBox() {
+        var r = document.createRange(); r.selectNodeContents(box);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      }
+      btn.addEventListener("click", function () {
+        var clone = box.cloneNode(true);
+        clone.querySelectorAll("img").forEach(function (i) { i.setAttribute("src", LIVE_LOGO); });
+        var html = clone.innerHTML.trim();
+        var text = box.innerText.trim();
+        if (navigator.clipboard && window.ClipboardItem) {
+          navigator.clipboard.write([new ClipboardItem({
+            "text/html": new Blob([html], { type: "text/html" }),
+            "text/plain": new Blob([text], { type: "text/plain" })
+          })]).then(function () {
+            msg.textContent = "Copied. Now paste it into Gmail.";
+          }, fallback);
+        } else { fallback(); }
+      });
+      function fallback() {
+        box.querySelectorAll("img").forEach(function (i) { i.setAttribute("src", LIVE_LOGO); });
+        selectBox();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        msg.textContent = ok ? "Copied. Now paste it into Gmail." : "Select the signature above and copy it.";
+      }
+    })();
+  </script>
+</body>
+</html>

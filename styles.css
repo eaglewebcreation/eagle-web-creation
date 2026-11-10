@@ -323,3 +323,125 @@ p { margin: 0; }
   .form { padding: 18px; }
   .form .btn, .contact-side .btn { justify-self: stretch; }
 }
+
+/* ===== Home page motion (only the home page uses these hooks) ===== */
+
+/* Scroll-in fades: hidden only once JS is running, so the page is never blank without it */
+.js [data-reveal] {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Hero: rotating business type */
+.rotator {
+  font-family: var(--font-display); font-weight: 800; font-style: italic; text-transform: uppercase;
+  font-size: var(--step-2); line-height: 1.25; color: var(--paper);
+}
+.rotator-word {
+  display: inline-block; background: var(--blue); transform: skewX(-14deg);
+  padding: 0 12px; margin-left: 4px; white-space: nowrap;
+}
+.rotator-word > span { display: inline-block; transform: skewX(14deg); animation: word-in 0.32s ease both; }
+.rotator-word > span.is-out { animation: word-out 0.26s ease both; }
+@keyframes word-in { from { opacity: 0; transform: skewX(14deg) translateY(0.4em); } to { opacity: 1; transform: skewX(14deg) translateY(0); } }
+@keyframes word-out { from { opacity: 1; transform: skewX(14deg) translateY(0); } to { opacity: 0; transform: skewX(14deg) translateY(-0.4em); } }
+
+/* Buttons and cards: small lift on hover (home only) */
+.home .btn { transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
+.home .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22); }
+.home .btn:active { transform: translateY(0); box-shadow: none; }
+/* Hover lift uses `translate`, so it never fights the scroll-in `transform` */
+.js .card--lift[data-reveal], .js .pains-open .pain[data-reveal] {
+  transition: opacity 0.6s ease calc(var(--i, 0) * 90ms), transform 0.6s ease calc(var(--i, 0) * 90ms),
+    translate 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card--lift:hover { translate: 0 -4px; box-shadow: 0 12px 28px rgba(11, 13, 18, 0.08); border-color: var(--blue); }
+
+/* "Sound familiar?": tap to open on phones, open cards on desktop */
+.pains { display: grid; gap: 12px; }
+.pain { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+.pain summary {
+  list-style: none; cursor: pointer; display: grid; grid-template-columns: 44px 1fr 24px;
+  align-items: center; gap: 14px; padding: 16px 18px;
+}
+.pain summary::-webkit-details-marker { display: none; }
+.pain h3 { font-size: var(--step-1); line-height: 1.2; }
+.pain p { color: var(--muted); padding: 0 18px 18px 76px; }
+.pain-icon {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--blue-soft); color: var(--blue);
+  display: grid; place-items: center;
+}
+.pain-icon svg { width: 22px; height: 22px; }
+.pain-toggle { position: relative; width: 24px; height: 24px; }
+.pain-toggle::before, .pain-toggle::after {
+  content: ""; position: absolute; left: 4px; right: 4px; top: 11px; height: 2px; background: var(--blue);
+  transition: transform 0.2s ease;
+}
+.pain-toggle::after { transform: rotate(90deg); }
+.pain[open] .pain-toggle::after { transform: rotate(0deg); }
+.pain[open] { border-color: var(--blue); }
+
+@media (min-width: 760px) {
+  .pains { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+  .pains-open .pain { display: flex; flex-direction: column; }
+  .pains-open .pain:hover { translate: 0 -4px; box-shadow: 0 12px 28px rgba(11, 13, 18, 0.08); }
+  .pains-open .pain[open] { border-color: var(--line); }
+  .pains-open .pain summary { cursor: default; grid-template-columns: 1fr; align-items: start; padding: 24px 24px 10px; }
+  .pains-open .pain-toggle { display: none; }
+  .pains-open .pain-icon { width: 52px; height: 52px; }
+  .pains-open .pain-icon svg { width: 26px; height: 26px; }
+  .pains-open .pain p { padding: 0 24px 24px; font-size: var(--step--1); }
+}
+
+/* "What your site can do": icon tiles */
+.features { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.feature {
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper);
+  padding: 18px 16px; display: grid; gap: 6px; align-content: start; min-width: 0;
+}
+.feature strong { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); line-height: 1.15; }
+.feature > span:last-child { color: var(--muted); font-size: var(--step--1); }
+.feature-icon {
+  width: 48px; height: 48px; border-radius: var(--radius); background: var(--blue); color: var(--paper);
+  display: grid; place-items: center; margin-bottom: 6px; transform: skewX(-8deg);
+}
+.feature-icon svg { width: 24px; height: 24px; transform: skewX(8deg); }
+.js .feature.is-in .feature-icon { animation: icon-pop 0.6s ease both; animation-delay: calc(var(--i, 0) * 90ms + 0.2s); }
+@keyframes icon-pop { 0% { transform: skewX(-8deg) scale(0.6); } 60% { transform: skewX(-8deg) scale(1.12); } 100% { transform: skewX(-8deg) scale(1); } }
+@media (min-width: 760px) {
+  .features { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .feature { padding: 24px; }
+}
+
+/* "How it works": steps with a line that fills as you scroll */
+.flow { --progress: 0; list-style: none; margin: 0; padding: 0 0 0 60px; position: relative; display: grid; gap: 28px; }
+.flow::before, .flow::after { content: ""; position: absolute; left: 19px; top: 20px; width: 3px; border-radius: 3px; }
+.flow::before { bottom: 20px; background: var(--line); }
+.flow::after { height: calc((100% - 40px) * var(--progress)); background: var(--blue); }
+.flow-step { position: relative; display: grid; gap: 4px; min-width: 0; }
+.flow-num {
+  position: absolute; left: -60px; top: 0; width: 41px; height: 41px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--paper); border: 3px solid var(--line); color: var(--muted);
+  font-family: var(--font-display); font-weight: 800; font-style: italic; font-size: 1.2rem; z-index: 1;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.flow-step.is-active .flow-num { background: var(--blue); border-color: var(--blue); color: var(--paper); transform: scale(1.06); }
+.flow-step h3 { font-size: var(--step-2); padding-top: 4px; }
+.flow-step p { color: var(--muted); max-width: 26rem; }
+@media (min-width: 860px) {
+  .flow { padding: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  .flow::before, .flow::after { top: 19px; left: 20px; height: 3px; width: auto; }
+  .flow::before { right: 20px; bottom: auto; }
+  .flow::after { width: calc((100% - 40px) * var(--progress)); height: 3px; right: auto; }
+  .flow-num { position: relative; left: 0; margin-bottom: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .rotator-word > span, .js .feature.is-in .feature-icon { animation: none; }
+  .home .btn:hover { transform: none; }
+  .card--lift:hover, .pains-open .pain:hover { translate: none; }
+  .flow-num, .pain-toggle::after, .pain-toggle::before { transition: none; }
+}

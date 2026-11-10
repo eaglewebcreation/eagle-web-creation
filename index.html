@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -246,7 +247,7 @@
 }
   </script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -269,10 +270,11 @@
     <section class="intro intro--home">
       <img class="mark" src="images/eagle-white.png" width="420" height="430" alt="" aria-hidden="true">
       <div class="wrap">
-        <div><span class="bar"><span>Website design &middot; Northern Wyoming</span></span></div>
-        <h1>Clean, fast websites that are easy to use</h1>
-        <p class="lede">I build and manage websites for businesses that want to look sharp online and be easy to find, without paying agency prices. Every site is built mobile-first and set up so customers can find what they need in a couple of taps.</p>
-        <div class="actions">
+        <div data-reveal><span class="bar"><span>Website design &middot; Northern Wyoming</span></span></div>
+        <h1 data-reveal style="--i:1">Clean, fast websites that are easy to use</h1>
+        <p class="rotator" data-reveal style="--i:2"><span class="sr-only">Built for local businesses.</span><span aria-hidden="true">Built for your <span class="rotator-word" id="rotator-word"><span>local business</span></span></span></p>
+        <p class="lede" data-reveal style="--i:3">I build and manage websites that look sharp, load fast and help customers find you, without agency prices.</p>
+        <div class="actions" data-reveal style="--i:4">
           <a class="btn btn--blue" href="/pricing">See pricing</a>
           <a class="btn btn--ghost" href="#contact">Get in touch</a>
         </div>
@@ -281,52 +283,52 @@
 
     <section class="section section--mist" aria-labelledby="familiar-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <h2 id="familiar-title">Sound familiar?</h2>
         </div>
-        <div class="cards cards--four">
-          <article class="card card--pain">
-            <h3>Customers keep calling to ask your hours or prices.</h3>
+        <div class="pains">
+          <details class="pain" data-reveal style="--i:0">
+            <summary><span class="pain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><h3>Customers keep calling to ask your hours or prices.</h3><span class="pain-toggle" aria-hidden="true"></span></summary>
             <p>Your site should answer that before they pick up the phone.</p>
-          </article>
-          <article class="card card--pain">
-            <h3>Your website looks fine on a computer but falls apart on a phone.</h3>
+          </details>
+          <details class="pain" data-reveal style="--i:1">
+            <summary><span class="pain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>Your website looks fine on a computer but falls apart on a phone.</h3><span class="pain-toggle" aria-hidden="true"></span></summary>
             <p>Most of your customers are looking at it on their phone. I build for that first.</p>
-          </article>
-          <article class="card card--pain">
-            <h3>You're still running on a Facebook page or the site someone set up years ago.</h3>
+          </details>
+          <details class="pain" data-reveal style="--i:2">
+            <summary><span class="pain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h3>You're still running on a Facebook page or the site someone set up years ago.</h3><span class="pain-toggle" aria-hidden="true"></span></summary>
             <p>A clean, current site makes people trust you before they ever call.</p>
-          </article>
-          <article class="card card--pain">
-            <h3>People can't find you when they search.</h3>
+          </details>
+          <details class="pain" data-reveal style="--i:3">
+            <summary><span class="pain-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><h3>People can't find you when they search.</h3><span class="pain-toggle" aria-hidden="true"></span></summary>
             <p>I set your site up so Google and AI tools like ChatGPT know what you do and where you work.</p>
-          </article>
+          </details>
         </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="services-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <h2 id="services-title">What I do</h2>
-          <p>Three services. Pick the one you need, or start with a conversation if you're not sure.</p>
+          <p>Three services. Pick the one you need, or start with a conversation.</p>
         </div>
         <div class="cards">
-          <article class="card">
+          <article class="card card--lift" data-reveal style="--i:0">
             <h3>Website creation</h3>
-            <p>A new website built around your business: your services, your area, your logo and colors. Built to load fast, work on any phone, and give Google what it needs to understand what you do.</p>
+            <p>A new site built around your services, logo and colors. Fast, made for phones, and set up so Google understands what you do.</p>
             <p class="price-from">From $800</p>
             <a class="card-link" href="/pricing#creation">Website creation pricing</a>
           </article>
-          <article class="card">
+          <article class="card card--lift" data-reveal style="--i:1">
             <h3>Website management</h3>
-            <p>Once your site is live, I keep it up to date. Send me what needs to change, like new hours, prices, photos or services, and I handle it so you can stay focused on your business.</p>
+            <p>Once you're live, I keep it current. Send me new hours, prices, photos or services and I handle it.</p>
             <p class="price-from">From $75/mo</p>
             <a class="card-link" href="/pricing#management">Website management pricing</a>
           </article>
-          <article class="card">
+          <article class="card card--lift" data-reveal style="--i:2">
             <h3>Website consultation</h3>
-            <p>Not sure how big your site should be, or what's holding your current one back? We'll talk through your business, who you're trying to reach, and what kind of site makes sense.</p>
+            <p>Not sure what size site you need, or what's holding your current one back? We'll talk it through.</p>
             <p class="price-from">Required for 10+ page sites</p>
             <a class="card-link" href="/pricing#consultation">About consultations</a>
           </article>
@@ -336,80 +338,56 @@
 
     <section class="section section--rule" aria-labelledby="features-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <h2 id="features-title">What your site can do</h2>
         </div>
-        <ul class="checks">
-          <li><strong>Online booking</strong><span>Customers pick a time without calling.</span></li>
-          <li><strong>Online ordering</strong><span>Take orders straight from your site.</span></li>
-          <li><strong>Quote and estimate requests</strong><span>Get the job details up front.</span></li>
-          <li><strong>Photo galleries</strong><span>Show off your work.</span></li>
-          <li><strong>Contact forms</strong><span>Messages go straight to your inbox.</span></li>
-          <li><strong>Click-to-call and directions</strong><span>One tap from a phone.</span></li>
+        <ul class="features">
+          <li class="feature" data-reveal style="--i:0"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><strong>Online booking</strong><span>Customers pick a time without calling.</span></li>
+          <li class="feature" data-reveal style="--i:1"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><strong>Online ordering</strong><span>Take orders straight from your site.</span></li>
+          <li class="feature" data-reveal style="--i:2"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span><strong>Quote and estimate requests</strong><span>Get the job details up front.</span></li>
+          <li class="feature" data-reveal style="--i:3"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span><strong>Photo galleries</strong><span>Show off your work.</span></li>
+          <li class="feature" data-reveal style="--i:4"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><strong>Contact forms</strong><span>Messages go straight to your inbox.</span></li>
+          <li class="feature" data-reveal style="--i:5"><span class="feature-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><strong>Click-to-call and directions</strong><span>One tap from a phone.</span></li>
         </ul>
-        <p class="list-foot">Ask me about any of these when we talk.</p>
+        <p class="list-foot" data-reveal>Ask me about any of these when we talk.</p>
       </div>
     </section>
 
     <section class="section section--mist" aria-labelledby="process-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="process-title">How I build your site</h2>
-          <p>A simple process, so you always know where things stand.</p>
+        <div class="section-head" data-reveal>
+          <h2 id="process-title">How it works</h2>
+          <p>Four steps, so you always know where things stand.</p>
         </div>
-        <ol class="steps">
-          <li>
-            <h3>We talk</h3>
-            <p>I learn what you do, where your customers are, and what you want the site to accomplish. That tells us which size of site fits.</p>
-          </li>
-          <li>
-            <h3>I plan the pages</h3>
-            <p>I map out each page and what goes on it, written around the services you offer and the words your customers actually search for.</p>
-          </li>
-          <li>
-            <h3>I build it</h3>
-            <p>Your site is custom-built, mobile-first, and designed around your logo and brand colors. No bloated page builders slowing it down.</p>
-          </li>
-          <li>
-            <h3>I set it up to be found</h3>
-            <p>More people now find local businesses by asking AI tools like ChatGPT, not just by searching Google. I structure your site so both can clearly understand what you do and where you work, which helps you show up when customers go looking.</p>
-          </li>
-          <li>
-            <h3>You review it</h3>
-            <p>You get a private preview link to look over on your phone and computer. We make changes until it's right.</p>
-          </li>
-          <li>
-            <h3>It goes live</h3>
-            <p>I connect your domain, set up the DNS correctly, and launch the site so it shows up where it should.</p>
-          </li>
-          <li>
-            <h3>I keep it current</h3>
-            <p>Your monthly plan keeps the site online, secure and backed up. You send changes when you need them and I take care of the rest.</p>
-          </li>
+        <ol class="flow" id="flow">
+          <li class="flow-step"><span class="flow-num" aria-hidden="true">1</span><h3>Build</h3><p>We talk, I plan the pages, and I build it around your colors, style and voice.</p></li>
+          <li class="flow-step"><span class="flow-num" aria-hidden="true">2</span><h3>Launch</h3><p>You check a private preview, then I connect your domain and go live.</p></li>
+          <li class="flow-step"><span class="flow-num" aria-hidden="true">3</span><h3>Get found</h3><p>I set it up so Google and AI tools like ChatGPT know what you do, and help with your Google Business Profile.</p></li>
+          <li class="flow-step"><span class="flow-num" aria-hidden="true">4</span><h3>Ongoing care</h3><p>Your monthly plan keeps it online, secure and current. Send changes anytime.</p></li>
         </ol>
       </div>
     </section>
 
     <section class="section" aria-labelledby="included-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <h2 id="included-title">Built right from the start</h2>
-          <p>Every site I build comes with the basics that a lot of websites skip.</p>
+          <p>The basics a lot of websites skip.</p>
         </div>
         <ul class="checks">
-          <li><strong>Mobile-first</strong><span>Most of your visitors are on a phone, so that's where I start.</span></li>
-          <li><strong>Fast loading</strong><span>Clean code and right-sized images mean pages open quickly.</span></li>
-          <li><strong>SEO for your type of business</strong><span>Page titles, descriptions and structure written around the services you offer.</span></li>
-          <li><strong>Ready for AI search</strong><span>Your services, prices and service area written out clearly and marked up so Google and AI assistants can read them.</span></li>
-          <li><strong>Easy to get around</strong><span>Simple menus and clear pages, so nobody gets lost.</span></li>
-          <li><strong>Your brand, kept intact</strong><span>Your logo and colors, used the way they're meant to look.</span></li>
-          <li><strong>Domain and DNS done properly</strong><span>Your web address set up correctly so your site loads and stays reachable.</span></li>
+          <li data-reveal style="--i:0"><strong>Mobile-first</strong><span>Built for phones first.</span></li>
+          <li data-reveal style="--i:1"><strong>Fast loading</strong><span>Pages open quickly.</span></li>
+          <li data-reveal style="--i:2"><strong>SEO for your type of business</strong><span>Written around the services you offer.</span></li>
+          <li data-reveal style="--i:3"><strong>Ready for AI search</strong><span>Marked up so Google and AI assistants can read it.</span></li>
+          <li data-reveal style="--i:4"><strong>Easy to get around</strong><span>Simple menus. Nobody gets lost.</span></li>
+          <li data-reveal style="--i:5"><strong>Your brand, kept intact</strong><span>Your logo and colors, used the way they're meant to look.</span></li>
+          <li data-reveal style="--i:6"><strong>Domain and DNS done properly</strong><span>Your web address set up right, so it stays reachable.</span></li>
         </ul>
       </div>
     </section>
 
     <section class="cta" aria-labelledby="cta-title">
-      <div class="wrap">
+      <div class="wrap" data-reveal>
         <div>
           <h2 id="cta-title">Ready for a better website?</h2>
           <p>Tell me about your business and I'll tell you which option fits.</p>
@@ -424,11 +402,11 @@
 
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <h2 id="contact-title">Contact</h2>
           <p>Tell me a little about your business and I'll get back to you within one business day.</p>
         </div>
-        <div class="split contact-split">
+        <div class="split contact-split" data-reveal style="--i:1">
           <form class="form" id="contact-form" novalidate>
             <input type="hidden" name="_subject" value="New message from eaglewebcreation.com">
             <input type="hidden" name="_template" value="table">
@@ -483,6 +461,7 @@
       <p class="legal">&copy; 2026 Eagle Web Creation. All rights reserved.</p>
     </div>
   </footer>
+  <script src="/home.js" defer></script>
   <script src="/contact.js" defer></script>
 </body>
 </html>

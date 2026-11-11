@@ -518,6 +518,7 @@ p { margin: 0; }
 
 @media (min-width: 860px) {
   .project { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 56px; }
+  .project--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); }
   .project--flip .device-stage { order: 2; }
   .project--flip .project-text { order: 1; }
 }

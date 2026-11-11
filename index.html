@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
@@ -336,6 +336,91 @@
       </div>
     </section>
 
+    <section class="section work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2 id="work-title">Recent work</h2>
+          <p>Two sites I built that are live right now.</p>
+        </div>
+
+        <article class="project">
+          <div class="device-stage" data-reveal style="--dur:18s">
+            <div class="device-inner">
+            <div class="laptop">
+              <div class="laptop-lid">
+                <div class="laptop-screen">
+                  <picture>
+                    <source srcset="images/work/kb-desktop.webp" type="image/webp">
+                    <img src="images/work/kb-desktop.jpg" width="1280" height="2913" loading="lazy" decoding="async" alt="The KB Hardware &amp; Lumber homepage on a computer">
+                  </picture>
+                </div>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+            <div class="phone">
+              <div class="phone-screen">
+                <picture>
+                  <source srcset="images/work/kb-phone.webp" type="image/webp">
+                  <img src="images/work/kb-phone.jpg" width="540" height="1216" loading="lazy" decoding="async" alt="The KB Hardware &amp; Lumber homepage on a phone">
+                </picture>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="project-text" data-reveal style="--i:1">
+            <p class="project-kind">Hardware store &amp; lumber yard</p>
+            <h3>KB Hardware &amp; Lumber</h3>
+            <p>A hometown hardware store's site, built so customers can check hours, ask for a quote and reach the store in one tap.</p>
+            <ul class="project-tags">
+              <li>Open-now hours</li>
+              <li>Two-step quote form</li>
+              <li>Google review carousel</li>
+              <li>Tap to call on phones</li>
+            </ul>
+            <a class="project-link" href="https://kbhardwarelumber.com/" target="_blank" rel="noopener">Visit kbhardwarelumber.com<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+
+        <article class="project project--flip">
+          <div class="device-stage" data-reveal style="--dur:20s">
+            <div class="device-inner">
+            <div class="laptop">
+              <div class="laptop-lid">
+                <div class="laptop-screen">
+                  <picture>
+                    <source srcset="images/work/blaze-desktop.webp" type="image/webp">
+                    <img src="images/work/blaze-desktop.jpg" width="1280" height="3314" loading="lazy" decoding="async" alt="The Blaze Home Loans homepage on a computer">
+                  </picture>
+                </div>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+            <div class="phone">
+              <div class="phone-screen">
+                <picture>
+                  <source srcset="images/work/blaze-phone.webp" type="image/webp">
+                  <img src="images/work/blaze-phone.jpg" width="540" height="1216" loading="lazy" decoding="async" alt="The Blaze Home Loans homepage on a phone">
+                </picture>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="project-text" data-reveal style="--i:1">
+            <p class="project-kind">Mortgage brokerage</p>
+            <h3>Blaze Home Loans</h3>
+            <p>A full site for an independent mortgage brokerage, with a page for each loan program, team profiles and call booking built in.</p>
+            <ul class="project-tags">
+              <li>Loan program pages</li>
+              <li>Team profiles</li>
+              <li>Online call booking</li>
+              <li>Google reviews</li>
+            </ul>
+            <a class="project-link" href="https://blazehomeloans.com/" target="_blank" rel="noopener">Visit blazehomeloans.com<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section section--rule" aria-labelledby="features-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
@@ -461,7 +546,7 @@
       <p class="legal">&copy; 2026 Eagle Web Creation. All rights reserved.</p>
     </div>
   </footer>
-  <script src="/home.js" defer></script>
+  <script src="/home.js?v=2" defer></script>
   <script src="/contact.js?v=5" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Home page motion: scroll-in fades, rotating word, "Sound familiar" cards, "How it works" progress line.
+/* Home page motion: scroll-in fades, rotating word, "Sound familiar" cards, "Recent work" mockups, "How it works" progress line.
    Everything is readable without this file; reduced-motion users get the static version. */
 (function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -76,5 +76,39 @@
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
     }
+  }
+  /* "Recent work": the real pages scroll inside the mockups while they're on screen,
+     and the devices tilt a little toward the cursor on computers */
+  var stages = document.querySelectorAll(".device-stage");
+  if (stages.length && !reduce) {
+    if ("IntersectionObserver" in window) {
+      var live = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.target.classList.toggle("is-live", e.isIntersecting); });
+      }, { threshold: 0.25 });
+      stages.forEach(function (st) { live.observe(st); });
+    } else {
+      stages.forEach(function (st) { st.classList.add("is-live"); });
+    }
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    stages.forEach(function (st) {
+      var inner = st.querySelector(".device-inner");
+      if (!inner) return;
+      var frame = 0;
+      st.addEventListener("pointermove", function (ev) {
+        if (!fine.matches || frame) return;
+        frame = requestAnimationFrame(function () {
+          frame = 0;
+          var r = st.getBoundingClientRect();
+          var x = (ev.clientX - r.left) / r.width - 0.5;
+          var y = (ev.clientY - r.top) / r.height - 0.5;
+          inner.style.setProperty("--ry", (x * 10).toFixed(2) + "deg");
+          inner.style.setProperty("--rx", (y * -7).toFixed(2) + "deg");
+        });
+      });
+      st.addEventListener("pointerleave", function () {
+        inner.style.setProperty("--ry", "0deg");
+        inner.style.setProperty("--rx", "0deg");
+      });
+    });
   }
 })();

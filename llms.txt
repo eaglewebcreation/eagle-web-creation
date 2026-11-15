@@ -28,9 +28,14 @@
 - Business details marked up with structured data for search engines and AI assistants
 - Domain and DNS set up properly at launch
 
+## Recent work
+
+- [KB Hardware & Lumber](https://kbhardwarelumber.com/): hardware store and lumber yard in Lovell, Wyoming
+- [Blaze Home Loans](https://blazehomeloans.com/): mortgage broker serving Wyoming, Idaho, Montana, Colorado and Florida
+
 ## Pages
 
-- [Home](https://eaglewebcreation.com/): services and how a site gets built
+- [Home](https://eaglewebcreation.com/): services, recent work and how a site gets built
 - [Pricing](https://eaglewebcreation.com/pricing): website creation, management and consultation pricing
 - [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing questions, search and AI visibility
 - [About](https://eaglewebcreation.com/about): about Talon Grant and how he builds websites

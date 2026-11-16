@@ -483,3 +483,14 @@ p { margin: 0; }
   .nav { gap: 2px; }
   .nav a { padding: 8px 6px; font-size: 0.94rem; letter-spacing: 0.03em; }
 }
+
+/* Header: keep the menu one line high whatever font is showing. Before the web font loads,
+   the wider fallback font used to wrap the menu onto a second line, and the whole page jumped
+   when Barlow arrived. Now the menu sits on its own row on narrow screens, never wraps, and
+   can scroll sideways in the rare case it doesn't fit. */
+.nav a { line-height: 1.2; white-space: nowrap; }
+@media (max-width: 900px) {
+  .site-header nav { flex: 1 1 100%; min-width: 0; }
+  .nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+}

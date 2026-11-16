@@ -93,6 +93,7 @@ button { font: inherit; color: inherit; }
 /* ============ HERO ============ */
 .hero { position: relative; background: var(--ink); color: #fff; overflow: hidden; padding: 150px 0 110px; min-height: 100svh; display: flex; align-items: center; }
 .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 55% at 78% 40%, rgba(0, 70, 186, .38), transparent 70%), radial-gradient(40% 40% at 10% 100%, rgba(0, 70, 186, .18), transparent 70%); }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line-dark) 1px, transparent 1px), linear-gradient(90deg, var(--line-dark) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(70% 70% at 60% 40%, #000 30%, transparent 80%); -webkit-mask-image: radial-gradient(70% 70% at 60% 40%, #000 30%, transparent 80%); opacity: .55; }
 .hero-eagle { position: absolute; width: min(56vw, 760px); right: -8vw; top: 50%; transform: translateY(-50%); opacity: .06; pointer-events: none; }
 .hero-inner { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
@@ -332,7 +333,7 @@ button { font: inherit; color: inherit; }
 }
 
 .bw { position: relative; border-radius: 14px; overflow: hidden; background: #10141b; border: 1px solid var(--line-dark); box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .9), 0 0 0 1px rgba(58, 123, 255, .1); aspect-ratio: 16 / 11; display: flex; flex-direction: column; }
-.bw-url { flex: 1; display: flex; align-items: center; gap: 7px; background: rgba(255, 255, 255, .06); border-radius: 6px; padding: 5px 12px; font-size: .8rem; color: var(--muted-dark); }
+.bw-url { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 7px; background: rgba(255, 255, 255, .06); border-radius: 6px; padding: 5px 12px; font-size: .8rem; color: var(--muted-dark); }
 .lock { color: #545c6c; transition: color .3s; }
 .bw-live { display: inline-flex; align-items: center; gap: 6px; font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; padding: 4px 10px; border-radius: 99px; border: 1px solid #2a303c; color: #545c6c; transition: all .4s; }
 .bw-live i { background: #545c6c; animation: none; }
@@ -571,9 +572,9 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
    The hero's unbuilt browser flies down and lands on the How it works browser as that section
    pins, then hands over to it, so the build carries straight on from the first screen.
    home2.js drives this; the hero lets the browser leave its box on the way down. */
-.js .hero { overflow: visible; overflow-x: clip; }
+.js .hero { overflow: visible; }
 .js .hero-demo { z-index: 20; }
-.js .mini-browser.is-flying { transition: none; will-change: transform, opacity; }
+.js .mini-browser.is-flying { transition: none; will-change: transform, opacity; background: #12161e; } /* solid while it flies over the heading */
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px) {
@@ -601,14 +602,22 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .work-card--flip .work-shot { order: 0; }
   .feat-split { grid-template-columns: 1fr; }
   .demo-phone { width: min(260px, 80%); }
-  .cta-inner, .split { grid-template-columns: 1fr; }
+  .cta-inner, .split { grid-template-columns: minmax(0, 1fr); }
 
   .build { height: 420vh; }
-  .build-inner { grid-template-columns: 1fr; gap: 18px; padding-top: 70px; }
+  /* How it works on phones: heading on top, then the browser (the hero's browser drops in over
+     the heading to land here), then the current step */
+  .build-sticky { align-items: flex-start; }
+  .build-inner { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-top: 112px; }
+  .build-copy { display: contents; }
+  .build h2 { order: -2; font-size: clamp(2rem, 1.4rem + 3vw, 2.8rem); }
   .build-stage { order: -1; }
   .build-sub, .build .label { display: none; }
-  /* heading stays for screen readers and search, out of sight like the design wants */
-  .build h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .mini-browser { aspect-ratio: 4 / 3.6; }
+  /* the rotating word ("construction company") can wrap to a second line on a phone; always leave room
+     for two lines so the page below never jumps when the word changes */
+  .rotator { min-height: 2.5em; }
+  .meter.in-build { opacity: 0; pointer-events: none; } /* How it works has its own progress bar */
   .flow { margin-top: 0; }
   .flow::before, .flow::after { display: none; }
   .flow-step { display: none; grid-template-columns: 40px 1fr; }
@@ -641,6 +650,15 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .bw { aspect-ratio: 16 / 9.5; }
 }
 
+/* Short phones (iPhone SE and similar): tighter How it works so the step fits on screen */
+@media (max-width: 900px) and (max-height: 700px) {
+  .build-inner { gap: 10px; padding-top: 108px; }
+  .build h2 { font-size: 1.8rem; }
+  .bw, .mini-browser { aspect-ratio: 4 / 3.2; }
+  .build-meter { margin-top: 8px; }
+  .flow-step p { font-size: .92rem; }
+}
+
 /* ============ REDUCED MOTION ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -650,7 +668,6 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .build-sticky { position: relative; height: auto; padding: 100px 0; }
   .flow-step { display: grid !important; opacity: 1; }
   .build h2, .build-sub { display: block; }
-  .build h2 { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
   .build .label { display: block; }
   .build-eagle { display: none; }
   main > section::after, .site-footer::after { --draw: 1; }

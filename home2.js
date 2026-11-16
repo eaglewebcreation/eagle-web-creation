@@ -193,6 +193,7 @@
       var docH = document.documentElement.scrollHeight - vh;
       var pct = docH > 0 ? Math.min(100, Math.round((y / docH) * 100)) : 100;
       meter.classList.toggle("is-on", y > vh * 0.6);
+      if (build) { var br = build.getBoundingClientRect(); meter.classList.toggle("in-build", br.top < vh * 0.5 && br.bottom > vh * 0.5); }
       var live = pct >= 97;
       meter.classList.toggle("is-live", live);
       meterPct.textContent = live ? "Live" : pct + "%";
@@ -220,18 +221,23 @@
 
   /* ===== Hero -> How it works: the unbuilt browser flies into the build ===== */
   var mini = $(".mini-browser"), stamp = $(".mb-stamp"), cue = $(".scroll-cue");
-  var flyFrom = null, flyTo = null, flyEnd = 1;
+  var flyFrom = null, flyTo = null, flyEnd = 1, flyTilt = 1;
+  var phone = window.matchMedia("(max-width: 900px)");
   function smooth(t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); }
   function layoutFly() {
     if (reduce || !mini || !bw || !build) return;
     var y = window.scrollY || window.pageYOffset;
     mini.style.transform = "none"; mini.style.opacity = ""; mini.style.clipPath = "";
     var a = mini.getBoundingClientRect(), b2 = bw.getBoundingClientRect(), bt = build.getBoundingClientRect().top + y;
+    // page position from layout offsets: unaffected by the hero's fade-up slide, so the landing is exact
+    var ox = 0, oy = 0, el = mini;
+    while (el) { ox += el.offsetLeft; oy += el.offsetTop; el = el.offsetParent; }
     // where the build browser sits once its section pins (its section's top at the top of the screen)
     var pinOffset = Math.max(0, y - bt); // already past the pin: undo the sticky shift
-    flyFrom = { x: a.left, y: a.top + y, w: a.width, h: a.height };
+    flyFrom = { x: ox, y: oy, w: a.width, h: a.height };
     flyTo = { x: b2.left, y: b2.top + y - pinOffset, w: b2.width, h: b2.height };
     flyEnd = Math.max(1, bt);
+    flyTilt = phone.matches ? 0 : 1;
     mini.classList.add("is-flying");
     paintFly();
   }
@@ -241,10 +247,10 @@
     var p = Math.max(0, Math.min(1, y / flyEnd)), e = smooth(p);
     var dx = (flyTo.x - flyFrom.x) * e, dy = (flyTo.y - flyFrom.y) * e;
     var s = 1 + (flyTo.w / flyFrom.w - 1) * e;
-    var rot = 1 - smooth(p * 2.2);
+    var rot = flyTilt * (1 - smooth(p * 2.2)); // phones fly flat, like the hero shows it
     // trim the (taller) hero browser down to the build browser's height as it lands, cropping rather than squashing
     var crop = Math.max(0, (flyFrom.h * s - flyTo.h) / s) * smooth((p - 0.4) / 0.6);
-    mini.style.clipPath = "inset(0 0 " + crop.toFixed(1) + "px 0 round 12px)";
+    mini.style.clipPath = crop > 0.5 ? "inset(0 0 " + crop.toFixed(1) + "px 0 round 12px)" : "";
     mini.style.transform = "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px) scale(" + s.toFixed(4) + ")" +
       " perspective(1400px) rotateY(" + (-9 * rot).toFixed(2) + "deg) rotateX(" + (4 * rot).toFixed(2) + "deg)";
     var hand = smooth((p - 0.86) / 0.14);          // last stretch: cross-fade to the real build browser
@@ -255,13 +261,18 @@
     if (cue) cue.style.opacity = (1 - smooth(p * 4)).toFixed(3);
   }
   if (mini && !reduce) {
+    var demo = $(".hero-demo");
+    if (demo) demo.classList.add("is-in"); // show it right away: it shouldn't still be sliding in while it flies
     mini.style.transformOrigin = "0 0";
     layoutFly();
-    window.addEventListener("resize", layoutFly);
     window.addEventListener("load", layoutFly);
     setTimeout(layoutFly, 1000); // after the hero has finished fading up into place
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutFly);
-    window.addEventListener("scroll", function () { requestAnimationFrame(paintFly); }, { passive: true });
+    var flyTick = false;
+    window.addEventListener("scroll", function () {
+      if (flyTick) return; flyTick = true;
+      requestAnimationFrame(function () { flyTick = false; paintFly(); });
+    }, { passive: true });
   }
 
   /* ===== Flow: the build line and the seam slashes =====
@@ -306,7 +317,6 @@
     });
   }
   layoutThread();
-  window.addEventListener("resize", layoutThread);
   window.addEventListener("load", layoutThread);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutThread);
   var flowTick = false;
@@ -314,6 +324,16 @@
     if (flowTick) return; flowTick = true;
     requestAnimationFrame(function () { flowTick = false; paintFlow(); });
   }, { passive: true });
+
+  /* Re-measure on real size changes only (rotation, window resize), not when a phone's address bar
+     slides in or out while scrolling. */
+  var lastW = window.innerWidth;
+  window.addEventListener("resize", function () {
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    if (mini && !reduce) layoutFly();
+    layoutThread();
+  });
 
   /* Free website check: hands the URL to the contact form. Nothing is "scanned" here. */
   var check = $("#check-form");

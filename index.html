@@ -37,7 +37,7 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_DMs5.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/images/logo-reverse.png" as="image">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="home2.css?v=2">
+  <link rel="stylesheet" href="home2.css?v=3">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
@@ -253,11 +253,90 @@
       </div>
     </section>
 
-    <!-- SOUND FAMILIAR -->
-    <section class="section section--paper" aria-labelledby="familiar-title">
+    <!-- HOW IT WORKS: signature build -->
+    <section class="build" id="build" aria-labelledby="process-title">
+      <div class="build-sticky">
+        <div class="wrap build-inner">
+          <div class="build-copy">
+            <p class="label mono">01 / How it works</p>
+            <h2 id="process-title">How it works</h2>
+            <p class="build-sub">Four steps, so you always know where things stand.</p>
+            <ol class="flow" id="flow">
+              <li class="flow-step is-active"><span class="flow-num mono" aria-hidden="true">01</span><div><h3>Build</h3><p>We talk, I plan the pages, and I build it around your colors, style and voice.</p></div></li>
+              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">02</span><div><h3>Launch</h3><p>You check a private preview, then I connect your domain and go live.</p></div></li>
+              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">03</span><div><h3>Get found</h3><p>I set it up so Google and AI tools like ChatGPT know what you do, and help with your Google Business Profile.</p></div></li>
+              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">04</span><div><h3>Ongoing care</h3><p>Your monthly plan keeps it online, secure and current. Send changes anytime.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="build-stage" aria-hidden="true">
+            <picture><source type="image/webp" srcset="/images/eagle-white.webp"><img class="build-eagle" id="build-eagle" src="/images/eagle-white.png" width="420" height="430" alt=""></picture>
+            <div class="bw" id="bw">
+              <div class="bw-top">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="bw-url"><svg class="lock" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="mono bw-url-text" id="bw-url">private-preview</span></span>
+                <span class="bw-live mono"><i></i>Live</span>
+              </div>
+              <div class="bw-page">
+                <div class="bw-nav"><span class="t bw-logo">Your Business</span><span class="bw-links"><i class="t">Services</i><i class="t">Photos</i><i class="t">Contact</i></span><span class="t bw-cta">Call now</span></div>
+                <div class="bw-hero">
+                  <div class="bw-hero-text">
+                    <span class="t bw-kicker">Open today &middot; until 6 PM</span>
+                    <span class="t bw-h">Here when you need us.</span>
+                    <span class="bw-btns"><span class="t">Call now</span><span class="t">Directions</span></span>
+                  </div>
+                  <div class="bw-photo"><span class="sun"></span><span class="ridge r1"></span><span class="ridge r2"></span></div>
+                </div>
+                <div class="bw-cards">
+                  <span><b class="t">Services</b><i></i><i></i></span>
+                  <span><b class="t">Prices</b><i></i><i></i></span>
+                  <span><b class="t">Hours</b><i></i><i></i></span>
+                </div>
+              </div>
+
+              <div class="bw-search">
+                <span class="bw-sbar mono"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span id="bw-q"></span></span>
+                <span class="bw-res you"><b>Your Business</b><em>Open now &middot; Call &middot; Directions</em></span>
+                <span class="bw-res"><i></i><i></i></span>
+                <span class="bw-ai mono">AI assistant: "Your Business is open until 6 today. Want directions?"</span>
+              </div>
+
+              <div class="bw-care">
+                <span class="bw-toast"><b class="mono">Change request</b><span>New Saturday hours</span><em class="mono">Updated &check;</em></span>
+                <span class="bw-chips mono"><span>SSL &check;</span><span>Backups &check;</span><span>Updates &check;</span></span>
+              </div>
+            </div>
+            <div class="build-meter mono"><span id="build-label">Wireframe</span><span class="build-track"><i id="build-fill"></i></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILT RIGHT -->
+    <section class="section section--paper" aria-labelledby="included-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <p class="label mono">01 / The problem</p>
+          <p class="label mono">02 / Launch checklist</p>
+          <h2 id="included-title">Built right from the start</h2>
+          <p>The basics a lot of websites skip.</p>
+        </div>
+        <ul class="checks">
+          <li data-reveal style="--i:0"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Mobile-first</strong><span>Built for phones first.</span></li>
+          <li data-reveal style="--i:1"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Fast loading</strong><span>Pages open quickly.</span></li>
+          <li data-reveal style="--i:2"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>SEO for your type of business</strong><span>Written around the services you offer.</span></li>
+          <li data-reveal style="--i:3"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Ready for AI search</strong><span>Marked up so Google and AI assistants can read it.</span></li>
+          <li data-reveal style="--i:4"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Easy to get around</strong><span>Simple menus. Nobody gets lost.</span></li>
+          <li data-reveal style="--i:5"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Your brand, kept intact</strong><span>Your logo and colors, used the way they're meant to look.</span></li>
+          <li data-reveal style="--i:6"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Domain and DNS done properly</strong><span>Your web address set up right, so it stays reachable.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SOUND FAMILIAR -->
+    <section class="section section--ink" aria-labelledby="familiar-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="label mono">03 / The problem</p>
           <h2 id="familiar-title">Sound familiar?</h2>
           <p>Tap a problem to see the fix.</p>
         </div>
@@ -341,10 +420,10 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="section section--ink" aria-labelledby="services-title">
+    <section class="section section--paper" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <p class="label mono">02 / Services</p>
+          <p class="label mono">04 / Services</p>
           <h2 id="services-title">What I do</h2>
           <p>Three services. Pick the one you need, or start with a conversation.</p>
         </div>
@@ -374,62 +453,11 @@
       </div>
     </section>
 
-    <!-- RECENT WORK -->
-    <section class="section section--paper" id="work" aria-labelledby="work-title">
-      <div class="wrap">
-        <div class="section-head" data-reveal>
-          <p class="label mono">03 / Recent work</p>
-          <h2 id="work-title">Recent work</h2>
-          <p>A few of the websites I've built. Take a look, then picture yours.</p>
-        </div>
-        <div class="work">
-          <article class="work-card" data-reveal>
-            <div class="work-shot" data-tilt>
-              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">kbhardwarelumber.com</span></span>
-              <picture><source type="image/webp" srcset="/images/work/kb-hardware-lumber-640.webp 640w, /images/work/kb-hardware-lumber.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/kb-hardware-lumber.jpg" width="1200" height="750" loading="lazy" alt="Home page of the KB Hardware &amp; Lumber website"></picture>
-            </div>
-            <div class="work-body">
-              <span class="work-num mono">01</span>
-              <p class="work-meta mono">Hardware store &amp; lumber yard &middot; Lovell, WY</p>
-              <h3>KB Hardware &amp; Lumber</h3>
-              <p>A hometown hardware store's site with store hours that show if they're open right now, a quote request form for material lists, and a page for every department.</p>
-              <ul class="work-tags">
-                <li>Live open/closed hours</li>
-                <li>Quote requests</li>
-                <li>Department pages</li>
-              </ul>
-              <a class="work-link" href="https://kbhardwarelumber.com/" target="_blank" rel="noopener">Visit kbhardwarelumber.com<span class="sr-only"> (opens in a new tab)</span></a>
-            </div>
-          </article>
-          <article class="work-card work-card--flip" data-reveal>
-            <div class="work-shot" data-tilt>
-              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">blazehomeloans.com</span></span>
-              <picture><source type="image/webp" srcset="/images/work/blaze-home-loans-640.webp 640w, /images/work/blaze-home-loans.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/blaze-home-loans.jpg" width="1200" height="750" loading="lazy" alt="Home page of the Blaze Home Loans website"></picture>
-            </div>
-            <div class="work-body">
-              <span class="work-num mono">02</span>
-              <p class="work-meta mono">Mortgage broker &middot; WY, ID, MT, CO, FL</p>
-              <h3>Blaze Home Loans</h3>
-              <p>A multistate mortgage broker's site with loan option pages, office locations, the team and resources for Realtors, and a clear way to talk to a loan officer.</p>
-              <ul class="work-tags">
-                <li>Loan option pages</li>
-                <li>Office locations</li>
-                <li>Realtor resources</li>
-              </ul>
-              <a class="work-link" href="https://blazehomeloans.com/" target="_blank" rel="noopener">Visit blazehomeloans.com<span class="sr-only"> (opens in a new tab)</span></a>
-            </div>
-          </article>
-          <!-- Cothren Construction and Plumbing: when the site goes live, take a screenshot (images/work/cothren.jpg, 1200x750),
-               then copy one of the work-card blocks above, fill in the details and give it the next number (03). -->
-        </div>
-      </div>
-    </section>
-
     <!-- FEATURES -->
     <section class="section section--ink" aria-labelledby="features-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <p class="label mono">04 / Features</p>
+          <p class="label mono">05 / Features</p>
           <h2 id="features-title">What your site can do</h2>
         </div>
         <div class="feat-split">
@@ -486,82 +514,54 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS: signature build -->
-    <section class="build" id="build" aria-labelledby="process-title">
-      <div class="build-sticky">
-        <div class="wrap build-inner">
-          <div class="build-copy">
-            <p class="label mono">05 / How it works</p>
-            <h2 id="process-title">How it works</h2>
-            <p class="build-sub">Four steps, so you always know where things stand.</p>
-            <ol class="flow" id="flow">
-              <li class="flow-step is-active"><span class="flow-num mono" aria-hidden="true">01</span><div><h3>Build</h3><p>We talk, I plan the pages, and I build it around your colors, style and voice.</p></div></li>
-              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">02</span><div><h3>Launch</h3><p>You check a private preview, then I connect your domain and go live.</p></div></li>
-              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">03</span><div><h3>Get found</h3><p>I set it up so Google and AI tools like ChatGPT know what you do, and help with your Google Business Profile.</p></div></li>
-              <li class="flow-step"><span class="flow-num mono" aria-hidden="true">04</span><div><h3>Ongoing care</h3><p>Your monthly plan keeps it online, secure and current. Send changes anytime.</p></div></li>
-            </ol>
-          </div>
-
-          <div class="build-stage" aria-hidden="true">
-            <picture><source type="image/webp" srcset="/images/eagle-white.webp"><img class="build-eagle" id="build-eagle" src="/images/eagle-white.png" width="420" height="430" alt=""></picture>
-            <div class="bw" id="bw">
-              <div class="bw-top">
-                <span class="dots"><i></i><i></i><i></i></span>
-                <span class="bw-url"><svg class="lock" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span class="mono bw-url-text" id="bw-url">private-preview</span></span>
-                <span class="bw-live mono"><i></i>Live</span>
-              </div>
-              <div class="bw-page">
-                <div class="bw-nav"><span class="t bw-logo">Your Business</span><span class="bw-links"><i class="t">Services</i><i class="t">Photos</i><i class="t">Contact</i></span><span class="t bw-cta">Call now</span></div>
-                <div class="bw-hero">
-                  <div class="bw-hero-text">
-                    <span class="t bw-kicker">Open today &middot; until 6 PM</span>
-                    <span class="t bw-h">Here when you need us.</span>
-                    <span class="bw-btns"><span class="t">Call now</span><span class="t">Directions</span></span>
-                  </div>
-                  <div class="bw-photo"><span class="sun"></span><span class="ridge r1"></span><span class="ridge r2"></span></div>
-                </div>
-                <div class="bw-cards">
-                  <span><b class="t">Services</b><i></i><i></i></span>
-                  <span><b class="t">Prices</b><i></i><i></i></span>
-                  <span><b class="t">Hours</b><i></i><i></i></span>
-                </div>
-              </div>
-
-              <div class="bw-search">
-                <span class="bw-sbar mono"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span id="bw-q"></span></span>
-                <span class="bw-res you"><b>Your Business</b><em>Open now &middot; Call &middot; Directions</em></span>
-                <span class="bw-res"><i></i><i></i></span>
-                <span class="bw-ai mono">AI assistant: "Your Business is open until 6 today. Want directions?"</span>
-              </div>
-
-              <div class="bw-care">
-                <span class="bw-toast"><b class="mono">Change request</b><span>New Saturday hours</span><em class="mono">Updated &check;</em></span>
-                <span class="bw-chips mono"><span>SSL &check;</span><span>Backups &check;</span><span>Updates &check;</span></span>
-              </div>
-            </div>
-            <div class="build-meter mono"><span id="build-label">Wireframe</span><span class="build-track"><i id="build-fill"></i></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BUILT RIGHT -->
-    <section class="section section--paper" aria-labelledby="included-title">
+    <!-- RECENT WORK -->
+    <section class="section section--paper" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <p class="label mono">06 / Launch checklist</p>
-          <h2 id="included-title">Built right from the start</h2>
-          <p>The basics a lot of websites skip.</p>
+          <p class="label mono">06 / Recent work</p>
+          <h2 id="work-title">Recent work</h2>
+          <p>A few of the websites I've built. Take a look, then picture yours.</p>
         </div>
-        <ul class="checks">
-          <li data-reveal style="--i:0"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Mobile-first</strong><span>Built for phones first.</span></li>
-          <li data-reveal style="--i:1"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Fast loading</strong><span>Pages open quickly.</span></li>
-          <li data-reveal style="--i:2"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>SEO for your type of business</strong><span>Written around the services you offer.</span></li>
-          <li data-reveal style="--i:3"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Ready for AI search</strong><span>Marked up so Google and AI assistants can read it.</span></li>
-          <li data-reveal style="--i:4"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Easy to get around</strong><span>Simple menus. Nobody gets lost.</span></li>
-          <li data-reveal style="--i:5"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Your brand, kept intact</strong><span>Your logo and colors, used the way they're meant to look.</span></li>
-          <li data-reveal style="--i:6"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><strong>Domain and DNS done properly</strong><span>Your web address set up right, so it stays reachable.</span></li>
-        </ul>
+        <div class="work">
+          <article class="work-card" data-reveal>
+            <div class="work-shot" data-tilt>
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">kbhardwarelumber.com</span></span>
+              <picture><source type="image/webp" srcset="/images/work/kb-hardware-lumber-640.webp 640w, /images/work/kb-hardware-lumber.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/kb-hardware-lumber.jpg" width="1200" height="750" loading="lazy" alt="Home page of the KB Hardware &amp; Lumber website"></picture>
+            </div>
+            <div class="work-body">
+              <span class="work-num mono">01</span>
+              <p class="work-meta mono">Hardware store &amp; lumber yard &middot; Lovell, WY</p>
+              <h3>KB Hardware &amp; Lumber</h3>
+              <p>A hometown hardware store's site with store hours that show if they're open right now, a quote request form for material lists, and a page for every department.</p>
+              <ul class="work-tags">
+                <li>Live open/closed hours</li>
+                <li>Quote requests</li>
+                <li>Department pages</li>
+              </ul>
+              <a class="work-link" href="https://kbhardwarelumber.com/" target="_blank" rel="noopener">Visit kbhardwarelumber.com<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+          <article class="work-card work-card--flip" data-reveal>
+            <div class="work-shot" data-tilt>
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">blazehomeloans.com</span></span>
+              <picture><source type="image/webp" srcset="/images/work/blaze-home-loans-640.webp 640w, /images/work/blaze-home-loans.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/blaze-home-loans.jpg" width="1200" height="750" loading="lazy" alt="Home page of the Blaze Home Loans website"></picture>
+            </div>
+            <div class="work-body">
+              <span class="work-num mono">02</span>
+              <p class="work-meta mono">Mortgage broker &middot; WY, ID, MT, CO, FL</p>
+              <h3>Blaze Home Loans</h3>
+              <p>A multistate mortgage broker's site with loan option pages, office locations, the team and resources for Realtors, and a clear way to talk to a loan officer.</p>
+              <ul class="work-tags">
+                <li>Loan option pages</li>
+                <li>Office locations</li>
+                <li>Realtor resources</li>
+              </ul>
+              <a class="work-link" href="https://blazehomeloans.com/" target="_blank" rel="noopener">Visit blazehomeloans.com<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+          <!-- Cothren Construction and Plumbing: when the site goes live, take a screenshot (images/work/cothren.jpg, 1200x750),
+               then copy one of the work-card blocks above, fill in the details and give it the next number (03). -->
+        </div>
       </div>
     </section>
 
@@ -664,7 +664,7 @@
 
   <a class="meter mono" id="meter" href="#build" aria-hidden="true" tabindex="-1"><i></i><span id="meter-label">Building yourbusiness.com</span><b id="meter-pct">0%</b></a>
 
-  <script src="home2.js?v=2" defer></script>
+  <script src="home2.js?v=3" defer></script>
   <script src="contact.js?v=5" defer></script>
 </body>
 </html>

@@ -550,6 +550,31 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   background: rgba(58, 123, 255, .15); border: 2px solid rgba(58, 123, 255, .45); box-sizing: border-box; transition: background .3s, border-color .3s, box-shadow .3s; }
 .js .label.mono.is-lit::before { background: var(--blue-glow); border-color: var(--blue-glow); box-shadow: 0 0 0 5px rgba(58, 123, 255, .2), 0 0 14px var(--blue-glow); }
 
+/* ============ SECTIONS THAT SWAPPED COLORS IN THE NEW ORDER ============ */
+/* Sound familiar? on dark */
+.section--ink .pain p { color: var(--muted-dark); }
+.section--ink .pain.is-fixed p { color: #fff; }
+.section--ink .pain-screen { background: var(--panel); box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .8), inset 0 0 0 1px var(--line-dark); }
+/* What I do on light */
+.section--paper .card { background: #fff; border-color: var(--line); box-shadow: 0 30px 60px -44px rgba(6, 8, 12, .35); }
+.section--paper .card--feature { border-color: var(--blue); }
+.section--paper .card::before { background: radial-gradient(120% 60% at 0% 0%, rgba(0, 70, 186, .08), transparent 60%); }
+.section--paper .card:hover { border-color: var(--blue); }
+.section--paper .card p { color: var(--muted); }
+.section--paper .card-num { color: var(--blue); }
+.section--paper .card .price-from { color: var(--text) !important; }
+.section--paper .card .price-from .small { color: var(--muted); }
+.section--paper .card-link { color: var(--text); border-top-color: var(--line); }
+.section--paper .card-link::after { color: var(--blue); }
+
+/* ============ HERO -> HOW IT WORKS HAND-OFF ============
+   The hero's unbuilt browser flies down and lands on the How it works browser as that section
+   pins, then hands over to it, so the build carries straight on from the first screen.
+   home2.js drives this; the hero lets the browser leave its box on the way down. */
+.js .hero { overflow: visible; overflow-x: clip; }
+.js .hero-demo { z-index: 20; }
+.js .mini-browser.is-flying { transition: none; will-change: transform, opacity; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px) {
   .pains { grid-template-columns: repeat(2, 1fr); }
@@ -581,7 +606,9 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .build { height: 420vh; }
   .build-inner { grid-template-columns: 1fr; gap: 18px; padding-top: 70px; }
   .build-stage { order: -1; }
-  .build h2, .build-sub, .build .label { display: none; }
+  .build-sub, .build .label { display: none; }
+  /* heading stays for screen readers and search, out of sight like the design wants */
+  .build h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .flow { margin-top: 0; }
   .flow::before, .flow::after { display: none; }
   .flow-step { display: none; grid-template-columns: 40px 1fr; }
@@ -623,6 +650,7 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .build-sticky { position: relative; height: auto; padding: 100px 0; }
   .flow-step { display: grid !important; opacity: 1; }
   .build h2, .build-sub { display: block; }
+  .build h2 { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
   .build .label { display: block; }
   .build-eagle { display: none; }
   main > section::after, .site-footer::after { --draw: 1; }

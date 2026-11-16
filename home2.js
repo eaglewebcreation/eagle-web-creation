@@ -218,6 +218,52 @@
   }
   if (header) header.classList.toggle("is-solid", (window.scrollY || 0) > 40);
 
+  /* ===== Hero -> How it works: the unbuilt browser flies into the build ===== */
+  var mini = $(".mini-browser"), stamp = $(".mb-stamp"), cue = $(".scroll-cue");
+  var flyFrom = null, flyTo = null, flyEnd = 1;
+  function smooth(t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); }
+  function layoutFly() {
+    if (reduce || !mini || !bw || !build) return;
+    var y = window.scrollY || window.pageYOffset;
+    mini.style.transform = "none"; mini.style.opacity = ""; mini.style.clipPath = "";
+    var a = mini.getBoundingClientRect(), b2 = bw.getBoundingClientRect(), bt = build.getBoundingClientRect().top + y;
+    // where the build browser sits once its section pins (its section's top at the top of the screen)
+    var pinOffset = Math.max(0, y - bt); // already past the pin: undo the sticky shift
+    flyFrom = { x: a.left, y: a.top + y, w: a.width, h: a.height };
+    flyTo = { x: b2.left, y: b2.top + y - pinOffset, w: b2.width, h: b2.height };
+    flyEnd = Math.max(1, bt);
+    mini.classList.add("is-flying");
+    paintFly();
+  }
+  function paintFly() {
+    if (!flyFrom) return;
+    var y = window.scrollY || window.pageYOffset;
+    var p = Math.max(0, Math.min(1, y / flyEnd)), e = smooth(p);
+    var dx = (flyTo.x - flyFrom.x) * e, dy = (flyTo.y - flyFrom.y) * e;
+    var s = 1 + (flyTo.w / flyFrom.w - 1) * e;
+    var rot = 1 - smooth(p * 2.2);
+    // trim the (taller) hero browser down to the build browser's height as it lands, cropping rather than squashing
+    var crop = Math.max(0, (flyFrom.h * s - flyTo.h) / s) * smooth((p - 0.4) / 0.6);
+    mini.style.clipPath = "inset(0 0 " + crop.toFixed(1) + "px 0 round 12px)";
+    mini.style.transform = "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px) scale(" + s.toFixed(4) + ")" +
+      " perspective(1400px) rotateY(" + (-9 * rot).toFixed(2) + "deg) rotateX(" + (4 * rot).toFixed(2) + "deg)";
+    var hand = smooth((p - 0.86) / 0.14);          // last stretch: cross-fade to the real build browser
+    mini.style.opacity = (1 - hand).toFixed(3);
+    mini.style.visibility = p >= 1 ? "hidden" : "visible";
+    bw.style.opacity = p < 0.86 ? "0" : hand.toFixed(3);
+    if (stamp) stamp.style.opacity = (1 - smooth(p * 5)).toFixed(3);
+    if (cue) cue.style.opacity = (1 - smooth(p * 4)).toFixed(3);
+  }
+  if (mini && !reduce) {
+    mini.style.transformOrigin = "0 0";
+    layoutFly();
+    window.addEventListener("resize", layoutFly);
+    window.addEventListener("load", layoutFly);
+    setTimeout(layoutFly, 1000); // after the hero has finished fading up into place
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutFly);
+    window.addEventListener("scroll", function () { requestAnimationFrame(paintFly); }, { passive: true });
+  }
+
   /* ===== Flow: the build line and the seam slashes =====
      The line runs from under the hero to "yourbusiness.com is live" in the footer and fills as you
      scroll; each section label lights up as the line reaches it. Each seam's slash draws itself

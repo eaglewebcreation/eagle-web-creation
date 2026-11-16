@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
@@ -265,6 +265,7 @@
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -343,7 +344,72 @@
       </div>
     </section>
 
-    <section class="section section--rule" aria-labelledby="features-title">
+    <section class="section section--mist" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2 id="work-title">Recent work</h2>
+          <p>A few of the websites I've built. Take a look, then picture yours.</p>
+        </div>
+        <div class="work">
+          <article class="work-card" data-reveal style="--i:0">
+            <div class="work-shot">
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img src="images/work/kb-hardware-lumber.jpg" width="1200" height="750" loading="lazy" alt="Home page of the KB Hardware &amp; Lumber website">
+            </div>
+            <div class="work-body">
+              <p class="work-meta">Hardware store &amp; lumber yard &middot; Lovell, WY</p>
+              <h3>KB Hardware &amp; Lumber</h3>
+              <p>A hometown hardware store's site with store hours that show if they're open right now, a quote request form for material lists, and a page for every department.</p>
+              <ul class="work-tags">
+                <li>Live open/closed hours</li>
+                <li>Quote requests</li>
+                <li>Department pages</li>
+              </ul>
+              <a class="work-link" href="https://kbhardwarelumber.com/" target="_blank" rel="noopener">Visit kbhardwarelumber.com<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+          <article class="work-card" data-reveal style="--i:1">
+            <div class="work-shot">
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img src="images/work/blaze-home-loans.jpg" width="1200" height="750" loading="lazy" alt="Home page of the Blaze Home Loans website">
+            </div>
+            <div class="work-body">
+              <p class="work-meta">Mortgage broker &middot; WY, ID, MT, CO, FL</p>
+              <h3>Blaze Home Loans</h3>
+              <p>A multistate mortgage broker's site with loan option pages, office locations, the team and resources for Realtors, and a clear way to talk to a loan officer.</p>
+              <ul class="work-tags">
+                <li>Loan option pages</li>
+                <li>Office locations</li>
+                <li>Realtor resources</li>
+              </ul>
+              <a class="work-link" href="https://blazehomeloans.com/" target="_blank" rel="noopener">Visit blazehomeloans.com<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+          <!-- Cothren Construction and Plumbing: when the site goes live, take a screenshot (images/work/cothren.jpg, 1200x750),
+               check the address and the three tags below, then remove these comment lines so the card shows.
+          <article class="work-card" data-reveal style="--i:2">
+            <div class="work-shot">
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img src="images/work/cothren.jpg" width="1200" height="750" loading="lazy" alt="Home page of the Cothren Construction and Plumbing website">
+            </div>
+            <div class="work-body">
+              <p class="work-meta">Construction &amp; plumbing</p>
+              <h3>Cothren Construction and Plumbing</h3>
+              <p>DESCRIPTION</p>
+              <ul class="work-tags">
+                <li>TAG</li>
+                <li>TAG</li>
+                <li>TAG</li>
+              </ul>
+              <a class="work-link" href="https://DOMAIN/" target="_blank" rel="noopener">Visit DOMAIN<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
           <h2 id="features-title">What your site can do</h2>
@@ -459,6 +525,7 @@
           <h2>Pages</h2>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/#work">Recent work</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/faq">FAQ</a></li>

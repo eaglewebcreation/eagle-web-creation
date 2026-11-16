@@ -445,3 +445,41 @@ p { margin: 0; }
   .card--lift:hover, .pains-open .pain:hover { translate: none; }
   .flow-num, .pain-toggle::after, .pain-toggle::before { transition: none; }
 }
+
+/* Home: "Recent work" showcase. Screenshots are 1200x750 (16:10) in images/work/ */
+.work { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.work-card {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+}
+.work-shot { background: var(--ink); border-bottom: 1px solid var(--line); }
+.work-bar { display: flex; gap: 6px; padding: 9px 12px; }
+.work-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.work-shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.work-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.work-meta {
+  font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; font-size: var(--step--1); color: var(--blue);
+}
+.work-body > p:not(.work-meta) { color: var(--muted); }
+.work-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.work-tags li { background: var(--blue-soft); color: var(--ink); border-radius: 999px; padding: 3px 12px; font-size: var(--step--1); font-weight: 600; }
+.work-link { margin-top: auto; padding-top: 4px; font-weight: 600; }
+/* The whole card opens the site; the link text is what screen readers announce */
+.work-link::after { content: ""; position: absolute; inset: 0; }
+.work-card { transition: translate 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+.js .work-card[data-reveal] {
+  transition: opacity 0.6s ease calc(var(--i, 0) * 90ms), transform 0.6s ease calc(var(--i, 0) * 90ms),
+    translate 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.work-card:hover { translate: 0 -4px; box-shadow: 0 12px 28px rgba(11, 13, 18, 0.1); border-color: var(--blue); }
+.work-card:hover .work-link { color: var(--blue-hover); }
+.work-card:has(.work-link:focus-visible) { outline: 3px solid var(--blue-hover); outline-offset: 3px; }
+.work-link:focus-visible { outline: none; }
+@media (max-width: 520px) { .work-body { padding: 20px; } }
+@media (prefers-reduced-motion: reduce) { .work-card:hover { translate: none; } }
+/* Five menu links: keep them on one line on small phones */
+@media (max-width: 400px) {
+  .nav { gap: 2px; }
+  .nav a { padding: 8px 6px; font-size: 0.94rem; letter-spacing: 0.03em; }
+}

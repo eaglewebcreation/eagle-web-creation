@@ -493,6 +493,63 @@ button { font: inherit; color: inherit; }
 .meter.is-live i { background: var(--live); animation: pulse 1.8s infinite; }
 .meter.is-live b { color: var(--live); }
 
+/* ============ FLOW BETWEEN SECTIONS ============
+   Sections keep their own colors, but none of them starts with a flat edge. Each one begins on
+   a slant that overlaps the section above (the same lean as the logo's blue bar), alternating
+   direction down the page, and a blue slash draws itself along every seam as it scrolls into
+   view. The hero's blueprint grid carries on faintly through every section. */
+:root { --slant: 4.5vw; --slant-ang: 2.576deg; } /* angle = atan(slant / page width) */
+body { overflow-x: clip; } /* the slanted seams never cause sideways scrolling */
+main > section:not(.hero), .site-footer {
+  position: relative; margin-top: calc(-1 * var(--slant));
+  clip-path: polygon(0 var(--slant), 100% 0, 100% 100%, 0 100%);
+}
+main > section:not(.hero):nth-of-type(odd), .site-footer {
+  clip-path: polygon(0 0, 100% var(--slant), 100% 100%, 0 100%);
+}
+main > section.section { padding-top: calc(clamp(80px, 10vw, 140px) + var(--slant)); }
+.cta { padding-top: calc(clamp(70px, 9vw, 120px) + var(--slant)); }
+.build-sticky { padding-top: var(--slant); }
+.landing { padding-top: calc(clamp(80px, 10vw, 140px) + var(--slant)); }
+
+/* the slash along each seam */
+main > section:not(.hero)::after, .site-footer::after {
+  content: ""; position: absolute; z-index: 3; left: 0; width: 100%; height: 5px; pointer-events: none;
+  top: calc(var(--slant) / 2 + 1px); transform: rotate(calc(-1 * var(--slant-ang)));
+  background: linear-gradient(90deg, var(--blue), var(--blue-glow)) no-repeat;
+  background-size: calc(var(--draw, 0) * 100%) 100%;
+  filter: drop-shadow(0 0 8px rgba(58, 123, 255, .55));
+}
+main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transform: rotate(var(--slant-ang)); }
+.cta::after { background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .7)) no-repeat; background-size: calc(var(--draw, 0) * 100%) 100%; }
+
+/* the blueprint grid continues under every section */
+.section--paper, .section--ink, .build {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px; background-attachment: fixed;
+}
+.section--paper { --grid-line: rgba(6, 8, 12, .04); background-color: var(--paper); }
+.section--ink { --grid-line: rgba(255, 255, 255, .035); background-color: var(--ink-2); }
+.build { --grid-line: rgba(255, 255, 255, .03); background-color: var(--ink); }
+
+/* ============ BUILD LINE (the thread through the whole page) ============
+   One blue line starts under the hero, runs down the left edge of the content through every
+   section (light and dark), lights each section's label as it arrives, and lands on
+   "yourbusiness.com is live" in the footer. home2.js measures it and sets --fill. */
+.thread { display: none; position: absolute; left: 0; top: 0; width: 2px; height: 0; z-index: 4; pointer-events: none; background: rgba(58, 123, 255, .22); border-radius: 2px; }
+.js .thread { display: block; }
+.thread i { position: absolute; inset: 0; transform-origin: top; transform: scaleY(var(--fill, 0)); border-radius: 2px;
+  background: linear-gradient(var(--blue), var(--blue-glow)); box-shadow: 0 0 12px var(--blue-glow); }
+.thread b { position: absolute; left: 50%; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--blue-glow);
+  box-shadow: 0 0 0 6px rgba(58, 123, 255, .2), 0 0 18px var(--blue-glow);
+  transform: translateY(calc(var(--fill, 0) * var(--len, 0px))); opacity: var(--head, 0); transition: opacity .3s; }
+/* each section label is a stop on the line */
+.js .section .label.mono, .js .build .label.mono, .js .cta-check .label { position: relative; }
+.js .section .label.mono::before, .js .build .label.mono::before {
+  content: ""; position: absolute; top: 50%; left: calc(-1 * var(--thread-gap, 30px) - 6px); width: 12px; height: 12px; margin-top: -6px; border-radius: 50%;
+  background: rgba(58, 123, 255, .15); border: 2px solid rgba(58, 123, 255, .45); box-sizing: border-box; transition: background .3s, border-color .3s, box-shadow .3s; }
+.js .label.mono.is-lit::before { background: var(--blue-glow); border-color: var(--blue-glow); box-shadow: 0 0 0 5px rgba(58, 123, 255, .2), 0 0 14px var(--blue-glow); }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px) {
   .pains { grid-template-columns: repeat(2, 1fr); }
@@ -539,6 +596,7 @@ button { font: inherit; color: inherit; }
 }
 @media (max-width: 600px) {
   body { font-size: 1rem; }
+  :root { --slant: 7vw; --slant-ang: 4.004deg; }
   .brand img { width: 140px; }
   .header-cta { display: none; }
   .pains { grid-template-columns: 1fr; }
@@ -547,6 +605,8 @@ button { font: inherit; color: inherit; }
   .checks li:last-child { grid-column: auto; }
   .footer-grid { grid-template-columns: 1fr; }
   .meter span { display: none; }
+  .nav { gap: 13px; }
+  .nav a { font-size: .86rem; letter-spacing: .04em; }
   .wm-bar span { letter-spacing: .3em; text-indent: .3em; }
 }
 @media (max-height: 700px) and (min-width: 901px) {
@@ -565,6 +625,10 @@ button { font: inherit; color: inherit; }
   .build h2, .build-sub { display: block; }
   .build .label { display: block; }
   .build-eagle { display: none; }
+  main > section::after, .site-footer::after { --draw: 1; }
+  .thread i { transform: none; }
+  .thread b { display: none; }
+  .section--paper, .section--ink, .build { background-attachment: scroll; }
   .js .landing-eagle, .js .wm-bar { opacity: 1; transform: none; clip-path: none; }
   .js .checks li .tick path { stroke-dashoffset: 0 !important; }
   .mini-browser { transform: none; }

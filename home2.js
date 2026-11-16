@@ -218,6 +218,57 @@
   }
   if (header) header.classList.toggle("is-solid", (window.scrollY || 0) > 40);
 
+  /* ===== Flow: the build line and the seam slashes =====
+     The line runs from under the hero to "yourbusiness.com is live" in the footer and fills as you
+     scroll; each section label lights up as the line reaches it. Each seam's slash draws itself
+     across as that seam comes up the screen. */
+  var thread = $("#thread"), hero = $(".hero"), landingLive = $(".landing-live");
+  var stops = $$(".section .label.mono, .build .label.mono");
+  var seams = $$("main > section:not(.hero)").concat($$(".site-footer"));
+  var tTop = 0, tLen = 0;
+  function layoutThread() {
+    if (!thread || !hero || !landingLive) return;
+    var y = window.scrollY || window.pageYOffset;
+    var wrap = $(".section .wrap") || $(".wrap");
+    var wl = wrap.getBoundingClientRect().left;
+    var gap = Math.max(9, Math.min(44, wl - 12));
+    document.documentElement.style.setProperty("--thread-gap", gap + "px");
+    var hr = hero.getBoundingClientRect(), lr = landingLive.getBoundingClientRect();
+    tTop = hr.bottom + y - 60;
+    tLen = Math.max(0, lr.top + y + lr.height / 2 - tTop);
+    thread.style.left = (wl - gap - 1) + "px";
+    thread.style.top = tTop + "px";
+    thread.style.height = tLen + "px";
+    thread.style.setProperty("--len", tLen + "px");
+    paintFlow();
+  }
+  function paintFlow() {
+    var y = window.scrollY || window.pageYOffset, vh = window.innerHeight, mark = y + vh * 0.55;
+    if (thread && tLen) {
+      var f = reduce ? 1 : Math.max(0, Math.min(1, (mark - tTop) / tLen));
+      thread.style.setProperty("--fill", f.toFixed(4));
+      thread.style.setProperty("--head", f > 0.001 && f < 0.999 ? 1 : 0);
+    }
+    stops.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      if (r.height) s.classList.toggle("is-lit", reduce || r.top + y <= mark);
+    });
+    seams.forEach(function (s) {
+      var top = s.getBoundingClientRect().top;
+      var d = reduce ? 1 : Math.max(0, Math.min(1, (vh * 0.95 - top) / (vh * 0.45)));
+      s.style.setProperty("--draw", d.toFixed(3));
+    });
+  }
+  layoutThread();
+  window.addEventListener("resize", layoutThread);
+  window.addEventListener("load", layoutThread);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutThread);
+  var flowTick = false;
+  window.addEventListener("scroll", function () {
+    if (flowTick) return; flowTick = true;
+    requestAnimationFrame(function () { flowTick = false; paintFlow(); });
+  }, { passive: true });
+
   /* Free website check: hands the URL to the contact form. Nothing is "scanned" here. */
   var check = $("#check-form");
   if (check) {

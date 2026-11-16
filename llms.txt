@@ -2,40 +2,67 @@
 
 > Eagle Web Creation is a web design business in Wyoming's Big Horn Basin, run by Talon Grant. It builds and manages clean, fast, custom-built websites for businesses in Lovell, Cody, Powell, Greybull, Basin, Worland, Thermopolis and the surrounding area, and larger sites for statewide and multistate businesses.
 
+- Owner: Talon Grant. You work with him directly: no sales team and no hand-offs.
 - Services: website creation, website management, website consultation
 - Service area: Big Horn Basin, Wyoming (Big Horn, Park, Washakie and Hot Springs counties), plus statewide and multistate clients
 - Email: talon@eaglewebcreation.com
 - Phone: 307-254-8972
 - Schedule a call: https://calendly.com/eaglewebcreation/30min
+- Contact form: https://eaglewebcreation.com/#contact (replies within one business day)
+- Facebook: https://www.facebook.com/share/1CwFkk1u5P/
+- Full text of every page: https://eaglewebcreation.com/llms-full.txt
+
+## Services
+
+- Website creation: a new site built around the business's services, logo and colors. Fast, made for phones, and set up so Google understands what the business does. From $800.
+- Website management: once a site is live, Talon keeps it current. Clients send new hours, prices, photos or services and he handles it. From $75/month.
+- Website consultation: for anyone not sure what size of site they need, or what's holding their current site back. Required for 10+ page sites.
 
 ## Pricing
 
-- Website creation, 1-5 pages: $800. For local small businesses that work within about a 60-mile radius.
-- Website creation, 6-10 pages: $1,500. For larger businesses that advertise statewide.
-- Website creation, 10+ pages: priced after a consultation. For multistate businesses and online stores.
-- Website management (a monthly plan comes with every site):
-  - Starter, $75/month: hosting, SSL, backups, security updates, uptime checks and 30 minutes of edits. Required with every website build.
-  - Growth, $150/month: everything in Starter, plus Google Business Profile upkeep and review requests.
-  - Local SEO, $275/month: everything in Growth, plus monthly SEO work and a monthly report.
-  - Extra work is $100 per hour, billed in full hours.
-- Website consultation: required for 10+ page sites and available to any business.
+Website creation is priced by the number of pages:
 
-## How sites are built
+- 1-5 pages: $800. For local small businesses that work within about a 60-mile radius.
+- 6-10 pages: $1,500. For larger businesses that advertise statewide.
+- 10+ pages: priced after a consultation. For multistate businesses and online stores (e-commerce).
 
-- Custom-built, with no drag-and-drop page builders
-- Mobile-first and fast loading
-- SEO written around each business's services and the towns it serves
-- Business details marked up with structured data for search engines and AI assistants
-- Domain and DNS set up properly at launch
+Every site comes with a monthly management plan:
+
+- Starter, $75/month (required with every site): hosting and SSL certificate, regular backups, security updates, uptime checks, and 30 minutes of edits a month.
+- Growth, $150/month: everything in Starter, plus Google Business Profile upkeep and review requests sent to customers.
+- Local SEO, $275/month: everything in Growth, plus monthly SEO work and a monthly report on how the site is doing.
+- Extra work beyond the plan: $100 per hour, billed in full hours (an extra 40 minutes is billed as 1 hour).
+
+Website consultation: every 10+ page site starts with one, and any business can book one. It covers the business, the areas it serves, what it sells and what its current website is or isn't doing, then Talon recommends a size of site and gives a price.
+
+## How it works
+
+1. Build: talk, plan the pages, and build the site around the business's colors, style and voice.
+2. Launch: the client checks a private preview, then the domain is connected and the site goes live.
+3. Get found: the site is set up so Google and AI tools like ChatGPT know what the business does, with help on the Google Business Profile.
+4. Ongoing care: the monthly plan keeps the site online, secure and current. Changes can be sent anytime.
+
+## What every site includes
+
+- Mobile-first: built for phones first
+- Fast loading
+- SEO written around the services the business offers
+- Ready for AI search: business details marked up so Google and AI assistants can read them
+- Easy navigation with simple menus
+- The client's logo and colors, used the way they're meant to look
+- Domain and DNS set up properly
+- Custom-built, with no drag-and-drop page builders (not Wix, Squarespace or WordPress)
+
+Features a site can include: online booking, online ordering, quote and estimate requests, photo galleries, contact forms, and click-to-call and directions.
 
 ## Recent work
 
-- [KB Hardware & Lumber](https://kbhardwarelumber.com/): hardware store and lumber yard in Lovell, Wyoming
-- [Blaze Home Loans](https://blazehomeloans.com/): mortgage broker serving Wyoming, Idaho, Montana, Colorado and Florida
+- [KB Hardware & Lumber](https://kbhardwarelumber.com/): hardware store and lumber yard in Lovell, Wyoming. Live open/closed store hours, quote requests for material lists, and a page for every department.
+- [Blaze Home Loans](https://blazehomeloans.com/): mortgage broker serving Wyoming, Idaho, Montana, Colorado and Florida. Loan option pages, office locations, the team, resources for Realtors, and a clear way to talk to a loan officer.
 
 ## Pages
 
-- [Home](https://eaglewebcreation.com/): services, recent work and how a site gets built
-- [Pricing](https://eaglewebcreation.com/pricing): website creation, management and consultation pricing
-- [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing questions, search and AI visibility
+- [Home](https://eaglewebcreation.com/): services, recent work, what a site can do, how it works, and the contact form
+- [Pricing](https://eaglewebcreation.com/pricing): website creation, management plan and consultation pricing
 - [About](https://eaglewebcreation.com/about): about Talon Grant and how he builds websites
+- [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing, search and AI visibility, and how sites are built

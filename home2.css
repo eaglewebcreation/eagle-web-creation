@@ -414,7 +414,7 @@ button { font: inherit; color: inherit; }
 .build-meter { display: flex; align-items: center; gap: 14px; margin-top: 18px; font-size: .74rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted-dark); }
 .build-meter #build-label { min-width: 16ch; }
 .build-track { flex: 1; height: 3px; background: #1d2330; border-radius: 3px; overflow: hidden; }
-.build-track i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--blue), var(--blue-glow)); box-shadow: 0 0 12px var(--blue-glow); }
+.build-track i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--blue), var(--blue-glow)); box-shadow: 0 0 12px var(--blue-glow); }
 .build-meter.is-live #build-label { color: var(--live); }
 
 /* ============ CHECKS ============ */
@@ -509,20 +509,25 @@ main > section:not(.hero):nth-of-type(odd), .site-footer {
   clip-path: polygon(0 0, 100% var(--slant), 100% 100%, 0 100%);
 }
 main > section.section { padding-top: calc(clamp(80px, 10vw, 140px) + var(--slant)); }
+/* How it works is pinned while you scroll through it. iPhone Safari can make pinned content inside a
+   clipped section jitter and flicker during a fast flick, and this section sits right under the
+   (also dark) hero, so it skips the slanted clip and keeps just the blue slash. */
+main > section.build { clip-path: none; margin-top: 0; }
+.build > .seam-slash { top: 1px; rotate: var(--slant-ang); }
 .cta { padding-top: calc(clamp(70px, 9vw, 120px) + var(--slant)); }
 .build-sticky { padding-top: var(--slant); }
 .landing { padding-top: calc(clamp(80px, 10vw, 140px) + var(--slant)); }
 
-/* the slash along each seam */
-main > section:not(.hero)::after, .site-footer::after {
-  content: ""; position: absolute; z-index: 3; left: 0; width: 100%; height: 5px; pointer-events: none;
-  top: calc(var(--slant) / 2 + 1px); transform: rotate(calc(-1 * var(--slant-ang)));
-  background: linear-gradient(90deg, var(--blue), var(--blue-glow)) no-repeat;
-  background-size: calc(var(--draw, 0) * 100%) 100%;
-  filter: drop-shadow(0 0 8px rgba(58, 123, 255, .55));
+/* the slash along each seam: its own element (home2.js adds one per seam) that is drawn in by scaling
+   it from the left, which the phone can do without re-styling the section underneath */
+.seam-slash {
+  position: absolute; z-index: 3; left: 0; width: 100%; height: 5px; pointer-events: none;
+  top: calc(var(--slant) + 1px); transform-origin: 0 50%; rotate: calc(-1 * var(--slant-ang)); scale: 0 1;
+  background: linear-gradient(90deg, var(--blue), var(--blue-glow));
+  filter: drop-shadow(0 0 8px rgba(58, 123, 255, .55)); will-change: scale;
 }
-main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transform: rotate(var(--slant-ang)); }
-.cta::after { background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .7)) no-repeat; background-size: calc(var(--draw, 0) * 100%) 100%; }
+main > section:not(.hero):nth-of-type(odd) > .seam-slash, .site-footer > .seam-slash { top: 1px; rotate: var(--slant-ang); }
+.cta > .seam-slash { background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .7)); }
 
 /* the blueprint grid continues under every section */
 .section--paper, .section--ink, .build {
@@ -539,7 +544,7 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
    "yourbusiness.com is live" in the footer. home2.js measures it and sets --fill. */
 .thread { display: none; position: absolute; left: 0; top: 0; width: 2px; height: 0; z-index: 4; pointer-events: none; background: rgba(58, 123, 255, .22); border-radius: 2px; }
 .js .thread { display: block; }
-.thread i { position: absolute; inset: 0; transform-origin: top; transform: scaleY(var(--fill, 0)); border-radius: 2px;
+.thread i { position: absolute; inset: 0; will-change: transform; transform-origin: top; transform: scaleY(var(--fill, 0)); border-radius: 2px;
   background: linear-gradient(var(--blue), var(--blue-glow)); box-shadow: 0 0 12px var(--blue-glow); }
 .thread b { position: absolute; left: 50%; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--blue-glow);
   box-shadow: 0 0 0 6px rgba(58, 123, 255, .2), 0 0 18px var(--blue-glow);
@@ -575,6 +580,48 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
 .js .hero { overflow: visible; }
 .js .hero-demo { z-index: 20; }
 .js .mini-browser.is-flying { transition: none; will-change: transform, opacity; background: #12161e; } /* solid while it flies over the heading */
+
+/* ============ HERO BROWSER FLIGHT AS A SCROLL ANIMATION ============
+   Where the browser supports scroll-driven animations (current Chrome, Edge, Android, and Safari on
+   iOS 26+), the hero browser's flight into How it works runs on the browser's own scrolling thread,
+   so it moves exactly with your finger and can't lag or shake. home2.js measures the start and end
+   once and sets the --fly-* values; older browsers get the same flight from the script instead. */
+@keyframes fly-move {
+  from { transform: translate3d(0, 0, 0) scale(1) perspective(1400px) rotateY(calc(-9deg * var(--fly-tilt, 0))) rotateX(calc(4deg * var(--fly-tilt, 0))); }
+  to { transform: translate3d(var(--fly-dx, 0px), var(--fly-dy, 0px), 0) scale(var(--fly-s, 1)) perspective(1400px) rotateY(0deg) rotateX(0deg); }
+}
+@keyframes fly-fade { 0%, 86% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes fly-crop { 0%, 40% { clip-path: inset(0 0 0 0 round 12px); } 100% { clip-path: inset(0 0 var(--fly-crop, 0px) 0 round 12px); } }
+@keyframes fly-in { 0%, 86% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes fly-out-early { from { opacity: 1; } to { opacity: 0; } }
+.js .mini-browser.fly-css {
+  transition: none; background: #12161e; will-change: transform, opacity; pointer-events: none;
+  animation-name: fly-move, fly-fade; animation-fill-mode: both, both;
+  animation-timing-function: cubic-bezier(.45, 0, .55, 1), linear;
+  animation-timeline: scroll(root), scroll(root);
+  animation-range: 0px var(--fly-end), 0px var(--fly-end);
+}
+.js .mini-browser.fly-css.fly-crop {
+  animation-name: fly-move, fly-fade, fly-crop; animation-fill-mode: both, both, both;
+  animation-timing-function: cubic-bezier(.45, 0, .55, 1), linear, linear;
+  animation-timeline: scroll(root), scroll(root), scroll(root);
+  animation-range: 0px var(--fly-end), 0px var(--fly-end), 0px var(--fly-end);
+}
+.js .bw.fly-css-target { animation-name: fly-in; animation-fill-mode: both; animation-timing-function: linear; animation-timeline: scroll(root); animation-range: 0px var(--fly-end); }
+.js .fly-css-fade { animation-name: fly-out-early; animation-fill-mode: both; animation-timing-function: linear; animation-timeline: scroll(root); animation-range: 0px calc(var(--fly-end) * .22); }
+
+/* ============ LIGHTER EFFECTS ON PHONES ============
+   Blurred see-through panels, a background fixed to the screen and glow filters all have to be
+   redrawn on every frame of a scroll. Desktops shrug that off; phones drop frames. Phones get solid
+   versions that look nearly the same. */
+@media (max-width: 900px), (hover: none) {
+  .site-header.is-solid { background: rgba(6, 8, 12, .97); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .meter { background: rgba(6, 8, 12, .95); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .bw-search { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .seam-slash { filter: none; }
+  .section--paper, .section--ink, .build { background-attachment: scroll; }
+  .thread i { box-shadow: none; }
+}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px) {
@@ -670,7 +717,7 @@ main > section:not(.hero):nth-of-type(odd)::after, .site-footer::after { transfo
   .build h2, .build-sub { display: block; }
   .build .label { display: block; }
   .build-eagle { display: none; }
-  main > section::after, .site-footer::after { --draw: 1; }
+  .seam-slash { scale: 1 1 !important; }
   .thread i { transform: none; }
   .thread b { display: none; }
   .section--paper, .section--ink, .build { background-attachment: scroll; }

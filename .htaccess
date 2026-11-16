@@ -1,16 +1,26 @@
 # Eagle Web Creation: one canonical address, https://eaglewebcreation.com
+# Every redirect below goes straight to the final https://eaglewebcreation.com address,
+# so each old or alternate URL takes exactly one 301 hop.
 RewriteEngine On
+
+# Clean page addresses: /index.html goes to /, and /about.html goes to /about
+# (checked first, so http://www.../about.html also lands on /about in one hop)
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://eaglewebcreation.com/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^ https://eaglewebcreation.com/%1 [R=301,L]
+
+# A trailing slash on a page address (/pricing/) goes to the page (/pricing)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)/$ https://eaglewebcreation.com/$1 [R=301,L]
+
+# www and http go to https://eaglewebcreation.com
 RewriteCond %{HTTP_HOST} ^www\.eaglewebcreation\.com$ [NC]
 RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://eaglewebcreation.com/$1 [R=301,L]
-
-# Clean page addresses: /index.html goes to /, and /about.html goes to /about
-RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-RewriteRule ^index\.html$ https://eaglewebcreation.com/ [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
-RewriteRule ^ https://eaglewebcreation.com/%1 [R=301,L]
 
 # Serve /about from about.html
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -19,3 +29,6 @@ RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^([^/.]+)$ $1.html [L]
 
 DirectoryIndex index.html
+
+# Missing pages show the site's own 404 page (it is marked noindex)
+ErrorDocument 404 /404.html

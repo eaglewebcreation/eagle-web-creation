@@ -254,10 +254,16 @@ html.scroll-fast [data-reveal] { transition: none !important; }
 .work-body > p:not(.work-meta) { color: var(--muted); }
 .work-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 24px; }
 .work-tags li { font-size: .85rem; font-weight: 600; padding: 6px 12px; border: 1.5px solid var(--text); border-radius: 99px; }
-.work-link { font-family: var(--font-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .04em; color: var(--blue); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+.work-link { font-family: var(--font-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .04em; color: var(--blue); text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; overflow-wrap: anywhere; }
 .work-link::after { content: " \2197"; }
 
 .work-more { margin-top: clamp(48px, 6vw, 80px); display: flex; justify-content: center; }
+
+/* Work cards: the site's animation loop plays over its screenshot (work-video.js) */
+.work-media { position: relative; }
+.work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s; pointer-events: none; background: transparent; }
+.work-video.is-playing { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
 /* ============ FEATURES ============ */
 .feat-split { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
@@ -666,7 +672,7 @@ html.sd .seam-slash {
   .hero-inner { grid-template-columns: 1fr; gap: 50px; }
   .mini-browser { transform: none; }
   .cards { grid-template-columns: 1fr; }
-  .work-card, .work-card--flip { grid-template-columns: 1fr; }
+  .work-card, .work-card--flip { grid-template-columns: minmax(0, 1fr); }
   .work-card--flip .work-shot { order: 0; }
   .feat-split { grid-template-columns: 1fr; }
   .demo-phone { width: min(260px, 80%); }

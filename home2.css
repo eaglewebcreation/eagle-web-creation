@@ -72,15 +72,17 @@ button { font: inherit; color: inherit; }
 .section--ink .label, .build .label { color: var(--blue-glow); }
 
 /* Reveal */
-.js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+.js [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity .45s var(--ease), transform .45s var(--ease); transition-delay: calc(min(var(--i, 0), 4) * 60ms); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
+/* scrolling fast: things just appear (a fade can't keep up with a flick and looks like a glitch) */
+html.scroll-fast [data-reveal] { transition: none !important; }
 
 /* ============ HEADER ============ */
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 50; color: #fff;
-  transition: background .3s, backdrop-filter .3s, box-shadow .3s;
+  transition: background .3s, box-shadow .3s;
 }
-.site-header.is-solid { background: rgba(6, 8, 12, .95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line-dark); }
+.site-header.is-solid { background: rgba(6, 8, 12, .97); box-shadow: 0 1px 0 var(--line-dark); }
 .site-header .wrap { display: flex; align-items: center; gap: 28px; height: 78px; }
 .brand img { width: 170px; }
 .site-header nav { margin-left: auto; }
@@ -313,7 +315,7 @@ button { font: inherit; color: inherit; }
 .build-sub { color: var(--muted-dark); margin-top: 12px; }
 .flow { margin-top: 32px; position: relative; display: grid; gap: 6px; }
 .flow::before { content: ""; position: absolute; left: 21px; top: 10px; bottom: 10px; width: 2px; background: var(--line-dark); }
-.flow::after { content: ""; position: absolute; left: 21px; top: 10px; width: 2px; height: calc((100% - 20px) * var(--progress, 0)); background: var(--blue-glow); box-shadow: 0 0 12px var(--blue-glow); }
+.flow::after { content: ""; position: absolute; left: 21px; top: 10px; bottom: 10px; width: 2px; transform-origin: top; transform: scaleY(var(--progress, 0)); background: var(--blue-glow); box-shadow: 0 0 12px var(--blue-glow); }
 .flow-step { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 10px 0; opacity: .38; transition: opacity .4s; }
 .flow-step.is-active, .flow-step.is-done { opacity: 1; }
 .flow-step.is-done:not(.is-active) { opacity: .6; }
@@ -386,7 +388,7 @@ button { font: inherit; color: inherit; }
 .bw.s-color .bw-cards i { background: #dde2ea; }
 
 /* Get found overlay */
-.bw-search { position: absolute; left: 5%; right: 5%; bottom: 5%; display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px; background: rgba(12, 15, 21, .94); border: 1px solid var(--line-dark); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .8); backdrop-filter: blur(6px); opacity: 0; transform: translateY(40px); transition: opacity .5s var(--ease), transform .6s var(--ease); }
+.bw-search { position: absolute; left: 5%; right: 5%; bottom: 5%; display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px; background: rgba(12, 15, 21, .94); border: 1px solid var(--line-dark); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .8); opacity: 0; transform: translateY(40px); transition: opacity .5s var(--ease), transform .6s var(--ease); }
 .bw.s-found .bw-search { opacity: 1; transform: none; }
 .bw.s-care .bw-search { opacity: 0; transform: translateY(20px); }
 .bw-sbar { display: flex; align-items: center; gap: 8px; font-size: .78rem; background: #1d2330; border-radius: 99px; padding: 8px 14px; color: #fff; min-height: 32px; }
@@ -486,7 +488,7 @@ button { font: inherit; color: inherit; }
 .legal { border-top: 1px solid var(--line-dark); padding: 22px 0 30px; color: var(--muted-dark); font-size: .88rem; }
 
 /* Corner build meter */
-.meter { position: fixed; right: 18px; bottom: 18px; z-index: 40; display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 99px; background: rgba(6, 8, 12, .88); color: #fff; border: 1px solid var(--line-dark); backdrop-filter: blur(8px); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; text-decoration: none; opacity: 0; transform: translateY(20px); transition: opacity .4s, transform .4s var(--ease), border-color .4s; pointer-events: none; }
+.meter { position: fixed; right: 18px; bottom: 18px; z-index: 40; display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 99px; background: rgba(6, 8, 12, .95); color: #fff; border: 1px solid var(--line-dark); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; text-decoration: none; opacity: 0; transform: translateY(20px); transition: opacity .4s, transform .4s var(--ease), border-color .4s; pointer-events: none; }
 .meter.is-on { opacity: 1; transform: none; pointer-events: auto; }
 .meter i { background: var(--blue-glow); animation: none; }
 .meter b { color: var(--blue-glow); min-width: 4ch; text-align: right; }
@@ -532,7 +534,7 @@ main > section:not(.hero):nth-of-type(odd) > .seam-slash, .site-footer > .seam-s
 /* the blueprint grid continues under every section */
 .section--paper, .section--ink, .build {
   background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px; background-attachment: fixed;
+  background-size: 64px 64px;
 }
 .section--paper { --grid-line: rgba(6, 8, 12, .04); background-color: var(--paper); }
 .section--ink { --grid-line: rgba(255, 255, 255, .035); background-color: var(--ink-2); }
@@ -621,6 +623,23 @@ main > section:not(.hero):nth-of-type(odd) > .seam-slash, .site-footer > .seam-s
   .seam-slash { filter: none; }
   .section--paper, .section--ink, .build { background-attachment: scroll; }
   .thread i { box-shadow: none; }
+}
+
+/* ============ BUILD LINE AND SEAM SLASHES AS SCROLL ANIMATIONS ============
+   Where scroll-driven animations are supported (html.sd, set by home2.js), the build line and the
+   seam slashes are drawn by the browser's own scrolling thread, like the hero browser's flight, so a
+   fast scroll can't leave them a frame behind. home2.js sets where the line starts and ends. */
+@keyframes thread-fill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes thread-head { 0% { transform: translateY(0); opacity: 0; } 0.5%, 99.5% { opacity: 1; } 100% { transform: translateY(var(--len, 0px)); opacity: 0; } }
+@keyframes seam-draw { from { scale: 0 1; } to { scale: 1 1; } }
+html.sd .thread i, html.sd .thread b {
+  animation-name: thread-fill; animation-fill-mode: both; animation-timing-function: linear;
+  animation-timeline: scroll(root); animation-range: var(--t-start, 0px) var(--t-end, 1px);
+}
+html.sd .thread b { animation-name: thread-head; }
+html.sd .seam-slash {
+  animation-name: seam-draw; animation-fill-mode: both; animation-timing-function: linear;
+  animation-timeline: view(); animation-range: cover 5% cover 50%;
 }
 
 /* ============ RESPONSIVE ============ */

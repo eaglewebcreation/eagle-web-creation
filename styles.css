@@ -501,3 +501,9 @@ p { margin: 0; }
   .work-card--flip .work-shot { order: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .work-shot { transition: none; } }
+
+/* Work cards: the site's animation loop plays over its screenshot (work-video.js) */
+.work-media { position: relative; }
+.work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s; pointer-events: none; background: transparent; }
+.work-video.is-playing { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .work-video { display: none; } }

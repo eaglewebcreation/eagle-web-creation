@@ -33,6 +33,16 @@ Every site comes with a monthly management plan:
 - Local SEO, $275/month: everything in Growth, plus monthly SEO work and a monthly report on how the site is doing.
 - Extra work beyond the plan: $100 per hour, billed in full hours (an extra 40 minutes is billed as 1 hour).
 
+Add-ons (available with any site, during the build or later):
+
+- 3D models: from $300. Interactive 3D models customers can spin and zoom, priced by how many models and how detailed.
+- Scroll animation: $100. One signature animation that plays as visitors scroll.
+- Additional language: $100 per page. The site in a second language, such as Spanish.
+- Logo refresh and brand kit: $200. A cleaned-up logo plus the business's colors and fonts in one place.
+- Seasonal refresh: $150 per refresh. Holiday or seasonal banners, specials and touches for the season.
+- Web app: priced after a consultation. A custom tool built into the site, like a client login, a calculator or a dashboard.
+- Priority updates: $50/month. Change requests done within 24 hours on business days.
+
 Website consultation: every 10+ page site starts with one, and any business can book one. It covers the business, the areas it serves, what it sells and what its current website is or isn't doing, then Talon recommends a size of site and gives a price.
 
 ## How it works
@@ -63,6 +73,6 @@ Features a site can include: online booking, online ordering, quote and estimate
 ## Pages
 
 - [Home](https://eaglewebcreation.com/): services, recent work, what a site can do, how it works, and the contact form
-- [Pricing](https://eaglewebcreation.com/pricing): website creation, management plan and consultation pricing
+- [Pricing](https://eaglewebcreation.com/pricing): website creation, management plan, add-on and consultation pricing
 - [About](https://eaglewebcreation.com/about): about Talon Grant and how he builds websites
 - [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing, search and AI visibility, and how sites are built

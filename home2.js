@@ -16,7 +16,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    }, { rootMargin: "0px 0px 15% 0px", threshold: 0 }); // start just before it scrolls on screen
     revealTargets.forEach(function (el) { io.observe(el); });
   }
 
@@ -194,6 +194,8 @@
   // browser's own scrolling thread and can't lag behind the page. Older browsers use the script below.
   var cssFly = !!(window.CSS && CSS.supports && CSS.supports("animation-timeline: scroll()"));
   var M = {}; // cached measurements
+  var sd = cssFly && !reduce; // build line and seam slashes as scroll animations too (see home2.css)
+  if (sd) document.documentElement.classList.add("sd");
   var last = { solid: null, p: -1, pct: -1, live: null, on: null, inb: null, fill: -1, head: null, fly: -1 };
 
   function smooth(t) { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); }
@@ -228,6 +230,7 @@
       thread.style.top = M.tTop + "px";
       thread.style.height = M.tLen + "px";
       thread.style.setProperty("--len", M.tLen + "px");
+      M.tVh = -1; // the line's scroll range depends on the window height; frame() sets it
       last.fill = -1;
     }
     // hero browser flight: from its spot in the hero to the build browser's spot once that section pins
@@ -252,6 +255,18 @@
   function frame() {
     ticking = false;
     var y = window.scrollY || window.pageYOffset, vh = window.innerHeight;
+
+    // scroll speed: above ~1.5 screens a second, reveals skip their fade until scrolling slows down
+    var now = performance.now();
+    if (M.lastT) {
+      var v = Math.abs(y - M.lastY) / Math.max(1, now - M.lastT); // px per ms
+      if (v > vh * 0.0015) {
+        if (!M.fast) { document.documentElement.classList.add("scroll-fast"); M.fast = true; }
+        clearTimeout(M.slowTimer);
+        M.slowTimer = setTimeout(function () { document.documentElement.classList.remove("scroll-fast"); M.fast = false; }, 180);
+      }
+    }
+    M.lastY = y; M.lastT = now;
 
     var solid = y > 40;
     if (header && solid !== last.solid) { header.classList.toggle("is-solid", solid); last.solid = solid; }
@@ -303,10 +318,16 @@
     }
 
     // build line + section stops
+    if (sd && thread && M.tLen && vh !== M.tVh) {
+      // the line fills as the point 55% down the screen travels from its start to its end
+      thread.style.setProperty("--t-start", (M.tTop - vh * 0.55).toFixed(0) + "px");
+      thread.style.setProperty("--t-end", (M.tTop + M.tLen - vh * 0.55).toFixed(0) + "px");
+      M.tVh = vh;
+    }
     if (thread && M.tLen) {
       var mark = y + vh * 0.55;
       var f = Math.max(0, Math.min(1, (mark - M.tTop) / M.tLen));
-      if (Math.abs(f - last.fill) > 0.0003) {
+      if (!sd && Math.abs(f - last.fill) > 0.0003) {
         thread.style.setProperty("--fill", f.toFixed(4));
         var head = f > 0.001 && f < 0.999;
         if (head !== last.head) { thread.style.setProperty("--head", head ? 1 : 0); last.head = head; }
@@ -319,7 +340,7 @@
     }
 
     // seam slashes draw in as each seam comes up the screen
-    seams.forEach(function (s) {
+    if (!sd) seams.forEach(function (s) {
       var top = s.y - y;
       var d = Math.max(0, Math.min(1, (vh * 0.95 - top) / (vh * 0.45)));
       d = Math.round(d * 100) / 100;

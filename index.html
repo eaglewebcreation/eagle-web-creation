@@ -37,7 +37,7 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_DMs5.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/images/logo-reverse.png" as="image">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="home2.css?v=6">
+  <link rel="stylesheet" href="home2.css?v=7">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
@@ -206,7 +206,7 @@
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="/" aria-current="page">Home</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="/work">Work</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -579,9 +579,10 @@
               <a class="work-link" href="https://208trailerrentalsandmovingllc.com/" target="_blank" rel="noopener">Visit 208trailerrentalsandmovingllc.com<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </article>
-          <!-- Cothren Construction and Plumbing: when the site goes live, take a screenshot (images/work/cothren.jpg, 1200x750),
-               then copy one of the work-card blocks above, fill in the details and give it the next number (04). -->
+          <!-- The homepage shows the three latest sites. For a new site: add its card after the last one with the
+               next number, remove the first (oldest) card, and add the site to work.html too. -->
         </div>
+        <div class="work-more" data-reveal><a class="btn btn--blue" href="/work">See all my work</a></div>
       </div>
     </section>
 
@@ -671,7 +672,7 @@
           <h2>Pages</h2>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/#work">Recent work</a></li>
+            <li><a href="/work">Recent work</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/faq">FAQ</a></li>

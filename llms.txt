@@ -74,6 +74,7 @@ Features a site can include: online booking, online ordering, quote and estimate
 ## Pages
 
 - [Home](https://eaglewebcreation.com/): services, recent work, what a site can do, how it works, and the contact form
+- [Work](https://eaglewebcreation.com/work): every website Eagle Web Creation has built, with a screenshot, what each site does and a link to it
 - [Pricing](https://eaglewebcreation.com/pricing): website creation, management plan, add-on and consultation pricing
 - [About](https://eaglewebcreation.com/about): about Talon Grant and how he builds websites
 - [FAQ](https://eaglewebcreation.com/faq): service areas in the Big Horn Basin, pricing, search and AI visibility, and how sites are built

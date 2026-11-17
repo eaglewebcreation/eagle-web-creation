@@ -501,3 +501,7 @@ p { margin: 0; }
 .tiers--addons .tier .amount { font-size: 2.2rem; }
 .tiers--addons .tier .amount--text { font-size: 1.5rem; }
 .tiers--addons .tier .amount small { font-size: .95rem; }
+
+/* Work page: same cards as the old homepage showcase, with the site name as an h2 */
+.work--page { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.work--page .work-card h2 { font-size: var(--step-2); font-style: normal; text-transform: none; font-weight: 700; }

@@ -36,8 +36,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_DMs5.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/images/logo-reverse.png" as="image">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=7">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/styles.css?v=8">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -284,57 +284,60 @@
       </div>
     </section>
 
-    <section class="section" aria-label="Websites">
+    <section class="section section--work" aria-label="Websites">
       <div class="wrap">
         <!-- Every site, in the same order as the homepage. Add a new site here AND on the homepage (index.html). -->
-        <div class="work work--page">
+        <div class="work-list">
           <article class="work-card">
-            <div class="work-shot">
-              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-              <picture><source type="image/webp" srcset="/images/work/kb-hardware-lumber-v2-640.webp 640w, /images/work/kb-hardware-lumber-v2.webp 1200w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 50vw, calc(100vw - 32px)"><img src="/images/work/kb-hardware-lumber-v2.jpg" width="1200" height="750" fetchpriority="high" alt="Home page of the KB Hardware &amp; Lumber website"></picture>
+            <div class="work-shot" data-tilt>
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">kbhardwarelumber.com</span></span>
+              <picture><source type="image/webp" srcset="/images/work/kb-hardware-lumber-v2-640.webp 640w, /images/work/kb-hardware-lumber-v2.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img fetchpriority="high" src="/images/work/kb-hardware-lumber-v2.jpg" width="1200" height="750" alt="Home page of the KB Hardware &amp; Lumber website"></picture>
             </div>
             <div class="work-body">
-              <p class="work-meta">Hardware store &amp; lumber yard &middot; Lovell, WY</p>
+              <span class="work-num mono">01</span>
+              <p class="work-meta mono">Hardware store &amp; lumber yard &middot; Lovell, WY</p>
               <h2>KB Hardware &amp; Lumber</h2>
               <p>A hometown hardware store's site with store hours that show if they're open right now, a quote request form for material lists, and a page for every department.</p>
               <ul class="work-tags">
-              <li>Live open/closed hours</li>
-              <li>Quote requests</li>
-              <li>Department pages</li>
+                <li>Live open/closed hours</li>
+                <li>Quote requests</li>
+                <li>Department pages</li>
               </ul>
               <a class="work-link" href="https://kbhardwarelumber.com/" target="_blank" rel="noopener">Visit kbhardwarelumber.com<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </article>
-          <article class="work-card">
-            <div class="work-shot">
-              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-              <picture><source type="image/webp" srcset="/images/work/blaze-home-loans-v2-640.webp 640w, /images/work/blaze-home-loans-v2.webp 1200w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 50vw, calc(100vw - 32px)"><img src="/images/work/blaze-home-loans-v2.jpg" width="1200" height="750" alt="Home page of the Blaze Home Loans website"></picture>
+          <article class="work-card work-card--flip">
+            <div class="work-shot" data-tilt>
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">blazehomeloans.com</span></span>
+              <picture><source type="image/webp" srcset="/images/work/blaze-home-loans-v2-640.webp 640w, /images/work/blaze-home-loans-v2.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/blaze-home-loans-v2.jpg" width="1200" height="750" loading="lazy" alt="Home page of the Blaze Home Loans website"></picture>
             </div>
             <div class="work-body">
-              <p class="work-meta">Mortgage broker &middot; WY, ID, MT, CO, FL</p>
+              <span class="work-num mono">02</span>
+              <p class="work-meta mono">Mortgage broker &middot; WY, ID, MT, CO, FL</p>
               <h2>Blaze Home Loans</h2>
               <p>A multistate mortgage broker's site with loan option pages, office locations, the team and resources for Realtors, and a clear way to talk to a loan officer.</p>
               <ul class="work-tags">
-              <li>Loan option pages</li>
-              <li>Office locations</li>
-              <li>Realtor resources</li>
+                <li>Loan option pages</li>
+                <li>Office locations</li>
+                <li>Realtor resources</li>
               </ul>
               <a class="work-link" href="https://blazehomeloans.com/" target="_blank" rel="noopener">Visit blazehomeloans.com<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </article>
           <article class="work-card">
-            <div class="work-shot">
-              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-              <picture><source type="image/webp" srcset="/images/work/208-trailer-rentals-640.webp 640w, /images/work/208-trailer-rentals.webp 1200w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 50vw, calc(100vw - 32px)"><img src="/images/work/208-trailer-rentals.jpg" width="1200" height="750" alt="Home page of the 208 Trailer Rentals &amp; Moving website"></picture>
+            <div class="work-shot" data-tilt>
+              <span class="work-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mono">208trailerrentalsandmovingllc.com</span></span>
+              <picture><source type="image/webp" srcset="/images/work/208-trailer-rentals-640.webp 640w, /images/work/208-trailer-rentals.webp 1200w" sizes="(min-width: 900px) 640px, calc(100vw - 40px)"><img src="/images/work/208-trailer-rentals.jpg" width="1200" height="750" loading="lazy" alt="Home page of the 208 Trailer Rentals &amp; Moving website"></picture>
             </div>
             <div class="work-body">
-              <p class="work-meta">Enclosed trailer rentals &middot; ID</p>
+              <span class="work-num mono">03</span>
+              <p class="work-meta mono">Enclosed trailer rentals &middot; ID</p>
               <h2>208 Trailer Rentals &amp; Moving</h2>
               <p>A trailer rental site where customers check availability, reserve online and get a gate code to pick up at any hour, with details on each trailer and pages for movers and real estate.</p>
               <ul class="work-tags">
-              <li>Online booking</li>
-              <li>24/7 gate-code pickup</li>
-              <li>Movers &amp; real estate pages</li>
+                <li>Online booking</li>
+                <li>24/7 gate-code pickup</li>
+                <li>Movers &amp; real estate pages</li>
               </ul>
               <a class="work-link" href="https://208trailerrentalsandmovingllc.com/" target="_blank" rel="noopener">Visit 208trailerrentalsandmovingllc.com<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
@@ -391,5 +394,18 @@
       <p class="legal">&copy; 2026 Eagle Web Creation. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+    (function () {
+      if (!window.matchMedia || matchMedia("(prefers-reduced-motion: reduce)").matches || !matchMedia("(hover: hover)").matches) return;
+      document.querySelectorAll("[data-tilt]").forEach(function (el) {
+        el.addEventListener("mousemove", function (ev) {
+          var r = el.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5;
+          el.style.setProperty("--ry", (x * 8).toFixed(2) + "deg");
+          el.style.setProperty("--rx", (-y * 6).toFixed(2) + "deg");
+        });
+        el.addEventListener("mouseleave", function () { el.style.setProperty("--ry", "0deg"); el.style.setProperty("--rx", "0deg"); });
+      });
+    })();
+  </script>
 </body>
 </html>

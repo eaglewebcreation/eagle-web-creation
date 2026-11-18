@@ -388,6 +388,54 @@
     measure();
   });
 
+  /* ===== Reviews carousel: arrows, dots, keyboard and mouse drag on top of native swipe/scroll-snap ===== */
+  var track = $("#reviews-track");
+  if (track) {
+    var cardsR = $$(".review", track), dotsR = $$(".reviews-dot"), arrows = $$(".reviews-arrow"), nav = $(".reviews-nav"), dotsBox = $(".reviews-dots");
+    var step = function () { return cardsR.length > 1 ? cardsR[1].offsetLeft - cardsR[0].offsetLeft : track.clientWidth; };
+    var go = function (i) { i = Math.max(0, Math.min(cardsR.length - 1, i)); track.scrollTo({ left: cardsR[i].offsetLeft - cardsR[0].offsetLeft, behavior: reduce ? "auto" : "smooth" }); };
+    var current = function () { return Math.round(track.scrollLeft / Math.max(1, step())); };
+    var sync = function () {
+      var max = track.scrollWidth - track.clientWidth, fits = max < 4;
+      if (nav) nav.classList.toggle("is-hidden", fits);
+      if (dotsBox) dotsBox.classList.toggle("is-hidden", fits);
+      var i = track.scrollLeft >= max - 4 ? cardsR.length - 1 : current();
+      dotsR.forEach(function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+      if (arrows[0]) arrows[0].disabled = track.scrollLeft < 4;
+      if (arrows[1]) arrows[1].disabled = track.scrollLeft >= max - 4;
+    };
+    arrows.forEach(function (a) { a.addEventListener("click", function () { go(current() + Number(a.dataset.dir)); }); });
+    dotsR.forEach(function (d, k) { d.addEventListener("click", function () { go(k); }); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); }
+    });
+    var sTick = false;
+    track.addEventListener("scroll", function () { if (!sTick) { sTick = true; requestAnimationFrame(function () { sTick = false; sync(); }); } }, { passive: true });
+    window.addEventListener("resize", sync);
+    // drag with a mouse (touch and trackpads already scroll it natively)
+    var drag = null;
+    track.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      drag = { x: e.clientX, left: track.scrollLeft, moved: false };
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 4) { drag.moved = true; track.classList.add("is-dragging"); }
+      if (drag.moved) track.scrollLeft = drag.left - dx;
+    });
+    window.addEventListener("pointerup", function () {
+      if (!drag) return;
+      var moved = drag.moved, startLeft = drag.left; drag = null;
+      if (!moved) return;
+      track.classList.remove("is-dragging");
+      var dir = track.scrollLeft > startLeft ? 1 : track.scrollLeft < startLeft ? -1 : 0;
+      go(Math.round(startLeft / Math.max(1, step())) + dir);
+    });
+    sync();
+  }
+
   /* Free website check: hands the URL to the contact form. Nothing is "scanned" here. */
   var check = $("#check-form");
   if (check) {

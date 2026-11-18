@@ -302,7 +302,9 @@ html.scroll-fast [data-reveal] { transition: none !important; }
 .review-by { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line-dark); }
 .review-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: #fff; font-family: var(--font-display); font-weight: 800; font-style: italic; font-size: 1.05rem; letter-spacing: .02em; flex: none; }
 .review-by strong { display: block; font-size: 1.05rem; }
-.review-src { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted-dark); margin-top: 2px; }
+.review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-right: 64px; }
+.review-src { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted-dark); }
+.review-biz { display: block; font-size: .95rem; color: var(--muted-dark); margin-top: 2px; }
 .reviews-dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
 .reviews-dots.is-hidden { display: none; }
 .reviews-dot { width: 10px; height: 10px; padding: 0; border-radius: 99px; border: 0; background: rgba(255, 255, 255, .28); cursor: pointer; transition: width .3s var(--ease), background .3s; }

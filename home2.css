@@ -265,6 +265,58 @@ html.scroll-fast [data-reveal] { transition: none !important; }
 .work-video.is-playing { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
 
+/* ============ REVIEWS (carousel) ============
+   A row of review cards that scrolls sideways: swipe on a phone, drag or arrow buttons on a laptop,
+   arrow keys when it has focus. Uses native scroll snapping, so it works even before home2.js runs. */
+.reviews-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; max-width: none; }
+.reviews-head > div:first-child { max-width: 760px; }
+.reviews-nav { display: flex; gap: 10px; flex: none; }
+.reviews-arrow { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .3); background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s, opacity .2s; }
+.reviews-arrow svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.reviews-arrow:hover:not(:disabled) { background: var(--blue); border-color: var(--blue); }
+.reviews-arrow:disabled { opacity: .3; cursor: default; }
+.reviews-nav.is-hidden { display: none; }
+.reviews { position: relative; }
+.reviews-track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(720px, 84%); gap: 22px;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scroll-padding-inline: 0; padding: 6px 0 18px; margin: -6px 0 0; scrollbar-width: none; cursor: grab;
+  /* run the row out to the edge of the screen so the next card peeks in instead of being cut off */
+  --bleed: calc((100vw - min(100vw - 40px, var(--wrap))) / 2);
+  margin-right: calc(-1 * var(--bleed)); padding-right: var(--bleed);
+}
+.reviews-track::-webkit-scrollbar { display: none; }
+.reviews-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+.reviews-track:focus-visible { outline: 3px solid var(--blue-glow); outline-offset: 4px; border-radius: 14px; }
+.review {
+  position: relative; scroll-snap-align: start; display: flex; flex-direction: column; gap: 18px; min-height: 100%;
+  padding: clamp(28px, 4vw, 40px); border-radius: 14px; background: var(--panel); border: 1px solid var(--line-dark); overflow: hidden;
+}
+.review::before { content: ""; position: absolute; inset: 0; background: radial-gradient(90% 70% at 100% 0%, rgba(0, 70, 186, .22), transparent 60%); pointer-events: none; }
+.review > * { position: relative; }
+.review-quote { position: absolute; right: 22px; top: -18px; font-family: var(--font-display); font-weight: 800; font-style: italic; font-size: 9rem; line-height: 1; color: var(--blue-glow); opacity: .35; pointer-events: none; }
+.review-stars { display: flex; gap: 4px; margin: 0; }
+.review-stars svg { width: 22px; height: 22px; fill: #fbbc04; }
+.review-text { margin: 0; flex: 1; }
+.review-text p { font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); line-height: 1.55; color: #fff; }
+.review-by { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line-dark); }
+.review-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: #fff; font-family: var(--font-display); font-weight: 800; font-style: italic; font-size: 1.05rem; letter-spacing: .02em; flex: none; }
+.review-by strong { display: block; font-size: 1.05rem; }
+.review-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-right: 64px; }
+.review-src { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted-dark); }
+.review-biz { display: block; font-size: .95rem; color: var(--muted-dark); margin-top: 2px; }
+.reviews-dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+.reviews-dots.is-hidden { display: none; }
+.reviews-dot { width: 10px; height: 10px; padding: 0; border-radius: 99px; border: 0; background: rgba(255, 255, 255, .28); cursor: pointer; transition: width .3s var(--ease), background .3s; }
+.reviews-dot[aria-current="true"] { width: 28px; background: var(--blue-glow); }
+.reviews-more { margin-top: clamp(36px, 5vw, 56px); display: flex; justify-content: center; }
+@media (max-width: 600px) {
+  .reviews-head { display: block; }
+  .reviews-nav { display: none; } /* phones swipe; the dots show where you are */
+  .reviews-track { grid-auto-columns: 88%; gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .reviews-track { scroll-behavior: auto; } }
+
 /* ============ FEATURES ============ */
 .feat-split { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
 .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }

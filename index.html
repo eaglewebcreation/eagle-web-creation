@@ -37,7 +37,7 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/barlow/v13/7cHpv4kjgoGqM7E_DMs5.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/images/logo-reverse.png" as="image">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="home2.css?v=8">
+  <link rel="stylesheet" href="home2.css?v=10">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
 {
@@ -586,6 +586,50 @@
       </div>
     </section>
 
+    <!-- REVIEWS: Google reviews, copied word for word. To add one, copy a <div class="review"> block,
+         put it first (newest first) and update the "Review x of y" labels. The carousel and dots adjust themselves. -->
+    <section class="section section--ink" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="section-head reviews-head" data-reveal>
+          <div>
+            <p class="label mono">07 / Reviews</p>
+            <h2 id="reviews-title">What clients say</h2>
+            <p>Reviews from business owners I've built websites for.</p>
+          </div>
+          <div class="reviews-nav" aria-label="Review controls">
+            <button class="reviews-arrow" type="button" data-dir="-1" aria-controls="reviews-track" aria-label="Previous review"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="reviews-arrow" type="button" data-dir="1" aria-controls="reviews-track" aria-label="Next review"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="reviews" data-reveal style="--i:1">
+          <div class="reviews-track" id="reviews-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Google reviews (swipe or use the arrow keys)">
+            <div class="review" role="group" aria-roledescription="review" aria-label="Review 1 of 2">
+              <span class="review-quote" aria-hidden="true">&ldquo;</span>
+              <div class="review-top"><p class="review-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></p><span class="review-src mono">Google review</span></div>
+              <blockquote class="review-text"><p>Talon Grant was exceptional in walking me through the process from start to finish. He made the business transaction smooth and effortless! I would highly recommend letting him build your website. He built me a stellar website. I haven’t seen a better one yet.</p></blockquote>
+              <footer class="review-by">
+                <span class="review-avatar" aria-hidden="true">FF</span>
+                <span><strong>Francine Faria</strong><span class="review-biz">208 Trailer Rentals &amp; Moving</span></span>
+              </footer>
+            </div>
+            <div class="review" role="group" aria-roledescription="review" aria-label="Review 2 of 2">
+              <span class="review-quote" aria-hidden="true">&ldquo;</span>
+              <div class="review-top"><p class="review-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg></p><span class="review-src mono">Google review</span></div>
+              <blockquote class="review-text"><p>Love my new website! It’s important that my company is represented online as professionally as we operate. This new site does my business more justice than my old one.</p></blockquote>
+              <footer class="review-by">
+                <span class="review-avatar" aria-hidden="true">BG</span>
+                <span><strong>Bo Grant</strong><span class="review-biz">Blaze Home Loans</span></span>
+              </footer>
+            </div>
+          </div>
+          <div class="reviews-dots"><button class="reviews-dot" type="button" aria-label="Show review 1"></button><button class="reviews-dot" type="button" aria-label="Show review 2"></button></div>
+        </div>
+        <div class="reviews-more" data-reveal>
+          <a class="btn btn--blue" href="https://share.google/sHMmd60mnrORfK3BQ" target="_blank" rel="noopener">See all reviews on Google<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta" aria-labelledby="cta-title">
       <div class="wrap cta-inner" data-reveal>
@@ -610,7 +654,7 @@
     <section class="section section--paper" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <p class="label mono">07 / Contact</p>
+          <p class="label mono">08 / Contact</p>
           <h2 id="contact-title">Contact</h2>
           <p>Tell me a little about your business and I'll get back to you within one business day.</p>
         </div>
@@ -685,7 +729,7 @@
 
   <a class="meter mono" id="meter" href="#build" aria-hidden="true" tabindex="-1"><i></i><span id="meter-label">Building yourbusiness.com</span><b id="meter-pct">0%</b></a>
 
-  <script src="home2.js?v=6" defer></script>
+  <script src="home2.js?v=7" defer></script>
   <script src="contact.js?v=5" defer></script>
   <script src="/work-video.js?v=1" defer></script>
 </body>

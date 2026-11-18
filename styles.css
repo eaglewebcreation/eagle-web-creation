@@ -507,3 +507,9 @@ p { margin: 0; }
 .work-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s; pointer-events: none; background: transparent; }
 .work-video.is-playing { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .work-video { display: none; } }
+
+/* Pricing: reply-time line under Ask about this, and the guarantee line under the creation cards */
+.tier .reply-note { font-size: var(--step--1); color: var(--muted); text-align: center; margin-top: -4px; }
+.guarantee-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 14px 18px; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: var(--radius); background: var(--paper); max-width: 52rem; }
+.guarantee-line .guarantee-badge { font-family: var(--font-display); font-weight: 700; font-style: italic; text-transform: uppercase; letter-spacing: .12em; font-size: var(--step--1); color: var(--paper); background: var(--blue); padding: 2px 10px; border-radius: 3px; }
+.guarantee-line strong { color: var(--ink); }

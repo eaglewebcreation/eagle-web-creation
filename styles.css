@@ -533,3 +533,4 @@ p { margin: 0; }
 .links-404 a:hover { border-color: #fff; color: #fff; }
 .links-404 strong { font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase; font-style: italic; }
 .links-404 span { color: #b9c2d3; font-size: 0.95rem; }
+.area-links { margin-top: 18px; color: #4a5468; }

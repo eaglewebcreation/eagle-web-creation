@@ -75,6 +75,12 @@ Features a site can include: online booking, online ordering, quote and estimate
 - [Blaze Home Loans](https://blazehomeloans.com/): mortgage broker serving Wyoming, Idaho, Montana, Colorado and Florida. Loan option pages, office locations, the team, resources for Realtors, and a clear way to talk to a loan officer.
 - [208 Trailer Rentals & Moving](https://208trailerrentalsandmovingllc.com/): enclosed cargo trailer rentals in the Treasure Valley, Idaho. Availability check, online reservations, gate-code pickup at any hour, trailer details, and pages for movers and real estate.
 
+Case studies (what each site needed, what was built and how it's set up to be found):
+
+- [KB Hardware & Lumber case study](https://eaglewebcreation.com/case-study-kb-hardware-lumber)
+- [Blaze Home Loans case study](https://eaglewebcreation.com/case-study-blaze-home-loans)
+- [Skeens' Auto Detailing case study](https://eaglewebcreation.com/case-study-skeens-auto-detailing): mobile auto detailing site at https://skeensautodetail.com/ with packages priced by vehicle size, online booking, real photos and Google reviews.
+
 ## Reviews
 
 Google reviews (all reviews: https://share.google/sHMmd60mnrORfK3BQ):

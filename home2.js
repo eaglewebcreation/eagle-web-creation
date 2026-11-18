@@ -62,10 +62,12 @@
   $$(".count").forEach(function (el) {
     var to = parseInt(el.dataset.to, 10);
     if (reduce || !("IntersectionObserver" in window)) return;
-    el.textContent = "0";
+    // the real price stays in the page (for Google, slow phones and screenshots) until the card is
+    // actually on screen; only then does it count up from 0
     var co = new IntersectionObserver(function (entries) {
       if (!entries[0].isIntersecting) return;
       co.disconnect();
+      el.textContent = "0";
       var t0 = performance.now(), dur = 1100;
       (function tick(t) {
         var k = Math.min(1, (t - t0) / dur);

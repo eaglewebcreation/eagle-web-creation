@@ -839,3 +839,23 @@ html.sd .seam-slash {
   .js .checks li .tick path { stroke-dashoffset: 0 !important; }
   .mini-browser { transform: none; }
 }
+
+/* ---- SEO preview additions (test site) ---- */
+.preview-note { border: 2px dashed #d99a00; background: #fff8e1; color: #3d3100; border-radius: 6px; padding: 14px 18px; font-size: 0.95rem; line-height: 1.5; max-width: 48rem; }
+.preview-note strong { color: #3d3100; }
+.todo-chip { display: inline-block; border: 1px dashed #e8a800; color: #e8a800; padding: 0 6px; border-radius: 4px; font-size: 0.9em; line-height: 1.5; }
+.legal .nap { display: block; margin-bottom: 6px; }
+.legal .nap a { color: inherit; }
+.work-review { margin: 18px 0 0; padding: 14px 18px; border-left: 3px solid #0046ba; background: #f2f5fa; border-radius: 0 6px 6px 0; }
+.work-review p { color: #0b0d12; font-style: italic; }
+.work-review footer { margin-top: 8px; font-size: 0.9rem; color: #4a5468; }
+.quote-list { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.quote-list blockquote { margin: 0; padding: 22px; border: 1px solid #dce2ec; border-radius: 6px; background: #fff; display: grid; gap: 12px; }
+.quote-list blockquote p { color: #0b0d12; }
+.quote-list .stars { color: #e8a800; letter-spacing: 2px; }
+.quote-list footer { font-size: 0.92rem; color: #4a5468; }
+.links-404 { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 56rem; }
+.links-404 a { display: grid; gap: 4px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; color: #fff; text-decoration: none; }
+.links-404 a:hover { border-color: #fff; color: #fff; }
+.links-404 strong { font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase; font-style: italic; }
+.links-404 span { color: #b9c2d3; font-size: 0.95rem; }

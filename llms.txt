@@ -79,7 +79,7 @@ Case studies (what each site needed, what was built and how it's set up to be fo
 
 - [KB Hardware & Lumber case study](https://eaglewebcreation.com/case-study-kb-hardware-lumber)
 - [Blaze Home Loans case study](https://eaglewebcreation.com/case-study-blaze-home-loans)
-- [Skeens' Auto Detailing case study](https://eaglewebcreation.com/case-study-skeens-auto-detailing): mobile auto detailing site at https://skeensautodetail.com/ with packages priced by vehicle size, online booking, real photos and Google reviews.
+- [208 Trailer Rentals & Moving case study](https://eaglewebcreation.com/case-study-208-trailer-rentals)
 
 ## Reviews
 

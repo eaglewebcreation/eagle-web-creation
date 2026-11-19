@@ -28,9 +28,9 @@ Website creation is priced by the number of pages:
 
 Every site comes with a monthly management plan:
 
-- Starter, $75/month (required with every site): hosting and SSL certificate, regular backups, security updates, uptime checks, and 30 minutes of edits a month.
-- Growth, $150/month: everything in Starter, plus Google Business Profile upkeep and review requests sent to customers.
-- Local SEO, $275/month: everything in Growth, plus monthly SEO work and a monthly report on how the site is doing.
+- Starter, $75/month (required with every site): hosting and SSL certificate, regular backups, security updates, uptime checks (and fixes if the site goes down), domain renewal handled, 30 minutes of edits a month, and replies within 1 business day.
+- Growth, $150/month: everything in Starter, plus 1 hour of edits a month, Google Business Profile kept current (hours, photos, services) and replies to Google reviews.
+- Local SEO, $275/month: everything in Growth, plus 2 hours of edits a month, seasonal updates, rankings tracked for top local searches, page titles, descriptions and speed tuned for search, consistent listings on Bing, Apple Maps, Yelp and other directories, Google Search Console errors watched and fixed, and a monthly report plus a 15-minute call to go over it.
 - Extra work beyond the plan: $100 per hour, billed in full hours (an extra 40 minutes is billed as 1 hour).
 
 Add-ons (available with any site, during the build or later):
@@ -39,7 +39,7 @@ Add-ons (available with any site, during the build or later):
 - Scroll animation: $100. One signature animation that plays as visitors scroll.
 - Additional language: $100 per page. The site in a second language, such as Spanish.
 - Logo refresh and brand kit: $200. A cleaned-up logo plus the business's colors and fonts in one place.
-- Seasonal refresh: $150 per refresh. Holiday or seasonal banners, specials and touches for the season.
+- Seasonal refresh: $150 per refresh. Holiday or seasonal banners, specials and touches for the season. Included in the Local SEO plan.
 - Web app: priced after a consultation. A custom tool built into the site, like a client login, a calculator or a dashboard.
 - Priority updates: $50/month. Change requests done within 24 hours on business days.
 

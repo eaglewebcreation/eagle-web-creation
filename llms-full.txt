@@ -336,8 +336,10 @@ Required with every site: Keeps your site up and safe.
 - Hosting and SSL certificate
 - Regular backups
 - Security updates
-- Uptime checks
+- Uptime checks, and I fix it if your site goes down
+- Domain renewal handled for you
 - 30 minutes of edits a month
+- Replies within 1 business day
 
 Ask about this: Starter plan
 
@@ -349,8 +351,9 @@ $150/mo
 
 Everything in Starter, plus: Help getting found and reviewed on Google.
 
-- Google Business Profile upkeep
-- Review requests sent to your customers
+- 1 hour of edits a month
+- Google Business Profile kept current: hours, photos, services
+- Replies to your Google reviews
 
 Ask about this: Growth plan
 
@@ -362,8 +365,13 @@ $275/mo
 
 Everything in Growth, plus: Ongoing work to move you up in search.
 
-- Monthly SEO work
-- A monthly report on how your site is doing
+- 2 hours of edits a month
+- Seasonal updates to your site
+- Rankings tracked for your top local searches
+- Page titles, descriptions and speed tuned for search
+- Your business listed the same way on Bing, Apple Maps, Yelp and other directories
+- Google Search Console errors watched and fixed
+- A monthly report on how your site is doing, plus a 15-minute call to go over it
 
 Ask about this: Local SEO plan
 
@@ -431,7 +439,7 @@ Per refresh
 
 $150
 
-Holiday or seasonal banners, specials and touches added to your site for the season.
+Holiday or seasonal banners, specials and touches added to your site for the season. Included in the Local SEO plan.
 
 Ask about this: Seasonal refresh
 
@@ -583,7 +591,7 @@ A 1-5 page website is $800 and fits local small businesses that work within abou
 
 #### What does website management cost?
 
-Every site comes with a monthly plan. Starter is $75 a month and covers hosting, SSL, backups, security updates, uptime checks and 30 minutes of edits. Growth is $150 a month and adds Google Business Profile upkeep and review requests. Local SEO is $275 a month and adds monthly SEO work and a monthly report. Extra work beyond your plan is $100 per hour, billed in full hours.
+Every site comes with a monthly plan. Starter is $75 a month and covers hosting, SSL, backups, security updates, uptime checks, domain renewal and 30 minutes of edits. Growth is $150 a month and adds 1 hour of edits, Google Business Profile upkeep and replies to your Google reviews. Local SEO is $275 a month and adds 2 hours of edits, seasonal updates, ranking tracking, search tuning, directory listings, Search Console fixes and a monthly report with a 15-minute call. Extra work beyond your plan is $100 per hour, billed in full hours.
 
 #### When do I need a website consultation?
 

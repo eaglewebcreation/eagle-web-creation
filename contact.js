@@ -16,6 +16,13 @@
   var form = document.getElementById("contact-form");
   if (!form) return;
   var note = document.getElementById("contact-note");
+  // Coming from an "Ask about this" button on Pricing: /contact?about=Growth%20plan
+  try {
+    var about = new URLSearchParams(location.search).get("about");
+    if (about && form.elements["message"] && !form.elements["message"].value) {
+      form.elements["message"].value = "I'd like to know more about: " + about.slice(0, 80) + ".";
+    }
+  } catch (e) {}
   var sending = false;
 
   form.addEventListener("submit", function (e) {
